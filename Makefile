@@ -6,7 +6,7 @@
 #    By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/04/05 16:20:26 by nmougino          #+#    #+#              #
-#    Updated: 2016/05/31 17:58:21 by nmougino         ###   ########.fr        #
+#    Updated: 2016/05/31 18:04:15 by nmougino         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,7 @@ LIBNAME =
 DST =
 
 #	Default rule
-DEFRULE =	re
+DEFRULE =	all
 
 #	Dossiers utiles
 SRCDIR =	srcs
@@ -30,7 +30,8 @@ LIBDIR =	libs
 OBJDIR =	objs
 
 #	Liste des sources
-SRC =
+SRC =		main.c \
+			ft_printf.c
 LIB =		ft
 OBJ =		$(SRC:.c=.o)
 
@@ -103,6 +104,7 @@ lib: $(OBJDIR) $(OBJP)
 	ranlib $(DST)$(LIBNAME)
 
 deplib:
+	@mkdir -p libs
 	$(addprefix make -C ,$(addsuffix /$(\n), $(LIBP)))
 	
 #	MrProper's legacy

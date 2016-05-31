@@ -6,11 +6,13 @@
 /*   By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/31 18:09:25 by nmougino          #+#    #+#             */
-/*   Updated: 2016/05/31 19:02:33 by nmougino         ###   ########.fr       */
+/*   Updated: 2016/06/01 00:27:37 by nmougino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+
+// EMPIRISME...
 
 static void	conv(const char *format, va_list *ap)
 {

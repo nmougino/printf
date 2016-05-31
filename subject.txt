@@ -14,8 +14,7 @@ le nombre d'octets effectivement écrits ou la constante EOF (-1) en cas d'erreu
 Spécificateurs de format :
 ils sont introduites par le caractère % et se terminent par le caractère de type de conversion suivant la syntaxe suivante :
 
-    % [drapeaux] [largeur] [.precision] [modificateur] type
-
+	% [drapeaux] [largeur] [.precision] [modificateur] type
 
 FLAGS :
 drapeaux 	Signification
@@ -56,9 +55,9 @@ rien		précision par défaut :
 
 modificateur : Il précise comment sera interprété l'argument.
 Modificateur	interprétation comme
-h					un entier de type short (d,i,o,u,x,X)
-l					un entier de type long (d,i,o,u,x,X)
-L					un réel de type long double (e,E,f,g,G)
+h				un entier de type short (d,i,o,u,x,X)
+l				un entier de type long (d,i,o,u,x,X)
+L				un réel de type long double (e,E,f,g,G)
 
 type : type de conversion de l'argument.
 Type	Format de la sortie
@@ -117,7 +116,44 @@ Exemple d'utilisation des formats numériques :
 
 
 
+
+Le format de conversion est indiqué par une chaîne de caractères,
+commençant et se terminant dans son état de décalage initial.
+La chaîne de format est composée d'indicateurs :
+les caractères ordinaires (différents de %),
+qui sont copiés sans modification sur la sortie,
+et les spécifications de conversion,
+qui sont mises en correspondance avec les arguments suivants.
+Les spécifications de conversion sont introduites par le caractère %,
+et se terminent par un indicateur de conversion.
+Entre eux peuvent se trouver (dans l'ordre),
+zéro ou plusieurs attributs,
+une valeur optionnelle de largeur minimal de champ,
+une valeur optionnelle de précision,
+et un éventuel modificateur de longueur.
+
+
+
 MAN ::
+
+MINIMAL FIELD WIDTH
+
+An optional decimal digit string specifying a minimum field width.  If the
+converted value has fewer characters than the field width, it will be
+padded with spaces on the left (or right, if the left-adjustment flag has
+been given) to fill out the field width.
+
+
+PRECISION
+
+An optional precision, in the form of a period . followed by an optional
+digit string.  If the digit string is omitted, the precision is taken as
+zero.  This gives the minimum number of digits to appear for d, i, o, u, x,
+and X conversions, the number of digits to appear after the decimal-point
+for a, A, e, E, f, and F conversions, the maximum number of significant
+digits for g and G conversions, or the maximum number of characters to be
+printed from a string for s conversions.
+
 
 CONVERSIONS
 

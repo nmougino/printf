@@ -6,7 +6,7 @@
 /*   By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/31 18:06:49 by nmougino          #+#    #+#             */
-/*   Updated: 2016/06/01 00:27:34 by nmougino         ###   ########.fr       */
+/*   Updated: 2016/06/01 22:42:21 by nmougino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,33 @@
 # define FT_PRINTF_H
 
 # include "libft.h"
+# include <unistd.h>
 # include <stdarg.h>
 
+# define BUF_SIZE 1024
 
+typedef struct		s_print
+{
+	char			buf[BUF_SIZE];
+	unsigned int	pos;
+	va_list			ap;
+}					t_print;
+
+typedef struct		s_spec
+{
+	char			flags;
+}					t_spec;
+
+
+int					ft_printf(const char *format, ...);
+
+
+
+
+
+
+
+/*
 // ne pas malloc,
 // writer une seule fois.
 
@@ -47,12 +71,11 @@ enum				e_modifiers
 
 typedef struct		s_spec
 {
-	/*
 	**	flags					8bits : '#' '0' '-' ' ' '+' 0 0 precision?
 	**	minimum field width
 	**	precision -> precision = 0 != !precision
 	**	modifiers
-	*/
+
 
 	char			flags;
 	unsigned int	mfw;
@@ -62,12 +85,10 @@ typedef struct		s_spec
 	type			param;
 }					t_spec
 
-int			ft_printf(const char *format, ...);
-
-#endifo
 
 
-//
+
+
 int		conversion_type(t_spec spec)
 {
 	type	param = (type)ft_cast(spec->signe, (spec->modifier ??? spec=>conv));
@@ -102,7 +123,7 @@ cas de %s:
 	caractere par caractere dans le buffer
 	en verifiant le depassement
 
-
+*/
 /*
 ????	ft_cast(int signed, int modifier)
 intmax lapin;
@@ -139,3 +160,5 @@ else
 		lapin = va_arg(va_list, unsigned long);
 }
 */
+
+#endif

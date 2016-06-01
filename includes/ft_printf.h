@@ -17,6 +17,23 @@
 # include <stdarg.h>
 
 
+// ne pas malloc,
+// writer une seule fois.
+
+nouvel itoa:
+
+itoawrite(buffer, int);
+ecrire dans un buffer statique de 1024
+si il atteint 1024, l'ecrire sur l'ecran, le vider puis reecrire dedans.
+
+a la fin de printf, on vide le buffer;
+
+char	tab[1024];
+a declarer au debut de printf
+il est auto free a la fin de la fonction;
+->>> commencer par l'empirisme
+
+
 enum				e_modifiers
 {
 	E_NO;
@@ -42,14 +59,57 @@ typedef struct		s_spec
 	unsigned int	precision;
 	int				modifiers;
 	char			conv;
+	type			param;
 }					t_spec
 
 int			ft_printf(const char *format, ...);
 
-#endif
+#endifo
+
+
+//
+int		conversion_type(t_spec spec)
+{
+	type	param = (type)ft_cast(spec->signe, (spec->modifier ??? spec=>conv));
+	//mise en forme
+	//selon les flags, la longueur minimum de champ et la precision
+	ft_puttype(param);
+	return (ft_typelen(param));
+}
+
+%s
+
+-> (char *)va_arg(ap, long)
+ft_putstrinto(lapin, buffer);
+-> FT_STRCPY
+
+un pointeur est un ulong ou un long?? -> identiques sur nos macs
+
+%p
+
+-> ulong en hexa;
+
+
+recuperation du parametre
+conversion du parametre
+verification taille buffer + taille param < 1024
+non : vidage du buffer
+
+ecriture dans le buffer
+
+cas de %s:
+	comme ft_putstr
+	caractere par caractere dans le buffer
+	en verifiant le depassement
+
 
 /*
 ????	ft_cast(int signed, int modifier)
+intmax lapin;
+uintmax ulapin;
+
+ou deux fonctions
+
 if (signed == 1)
 {
 	if (modifier == E_NO)

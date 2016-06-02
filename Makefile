@@ -6,7 +6,7 @@
 #    By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/04/05 16:20:26 by nmougino          #+#    #+#              #
-#    Updated: 2016/06/02 17:50:08 by nmougino         ###   ########.fr        #
+#    Updated: 2016/06/02 20:16:56 by nmougino         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,6 +32,7 @@ OBJDIR =	objs
 #	Liste des sources
 SRC =		main.c \
 			setconvparts.c \
+			conv.c \
 			ft_printf.c
 LIB =		ft
 OBJ =		$(SRC:.c=.o)

@@ -6,7 +6,7 @@
 /*   By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/31 18:06:49 by nmougino          #+#    #+#             */
-/*   Updated: 2016/06/02 17:50:47 by nmougino         ###   ########.fr       */
+/*   Updated: 2016/06/02 20:30:16 by nmougino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,13 @@
 
 enum				e_hljz
 {
-	E_NO;
-	E_HH;
-	E_H;
-	E_L;
-	E_LL;
-	E_J;
-	E_Z;
+	E_NO = 0,
+	E_HH,
+	E_H,
+	E_L,
+	E_LL,
+	E_J,
+	E_Z
 };
 
 typedef struct		s_print
@@ -35,6 +35,7 @@ typedef struct		s_print
 	char			buf[BUF_SIZE];
 	unsigned int	pos;
 	va_list			ap;
+	void			*convftab[14];
 }					t_print;
 
 typedef struct		s_spec
@@ -50,11 +51,17 @@ typedef struct		s_spec
 
 int					ft_printf(const char *format, ...);
 
+void				addto(char c, t_print *print);
+
 int					setflag(t_spec *spec, const char *str);
 int					setmfwi(t_spec *spec, const char *str);
 int					setprec(t_spec *spec, const char *str);
 int					setmodi(t_spec *spec, const char *str);
 int					setconv(t_spec *spec, const char *str);
+
+int					conv_C(t_spec *spec, t_print *print);
+
+int	conv(t_spec *spec, t_print *print);
 
 /*
 // ne pas malloc,

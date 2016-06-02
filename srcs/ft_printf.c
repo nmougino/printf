@@ -6,33 +6,43 @@
 /*   By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/31 18:09:25 by nmougino          #+#    #+#             */
-/*   Updated: 2016/06/02 17:50:12 by nmougino         ###   ########.fr       */
+/*   Updated: 2016/06/02 20:38:59 by nmougino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-// VERSION EMPIRIQUE
-
 #include "ft_printf.h"
 
-static void	addto(char c, char buf[], unsigned int *pos)
+void	addto(char c, t_print *print)
 {
-	if (++(*pos) >= BUF_SIZE)
+	if (++(print->pos) >= BUF_SIZE)
 	{
-		write(1, buf, BUF_SIZE);
-		*pos = 0;
+		write(1, print->buf, BUF_SIZE);
+		(print->pos) = 0;
 	}
-	buf[*pos] = c;
-	++(*pos);
+	print->buf[print->pos] = c;
+	++(print->pos);
 }
 
-static void	initprint(t_print *print, const char *format)
+static void	initprint(t_print *print)
 {
-	va_start(print->ap, format);
+	//print->convftab[0] = &conv_s;
+	//print->convftab[1] = &conv_S;
+	//print->convftab[2] = &conv_p;
+	//print->convftab[3] = &conv_d;
+	//print->convftab[4] = &conv_D;
+	//print->convftab[5] = &conv_i;
+	//print->convftab[6] = &conv_o;
+	//print->convftab[7] = &conv_O;
+	//print->convftab[8] = &conv_u;
+	//print->convftab[9] = &conv_U;
+	//print->convftab[10] = &conv_x;
+	//print->convftab[11] = &conv_X;
+	//print->convftab[12] = &conv_c;
+	print->convftab[13] = &conv_C;
 	print->pos = 0;
 }
 
-
-static int	setspec(t_spec* spec, const char *str)
+static int	setspec(t_spec *spec, const char *str)
 {
 	int		i;
 
@@ -42,48 +52,36 @@ static int	setspec(t_spec* spec, const char *str)
 	i += setprec(spec, str + i);
 	i += setmodi(spec, str + i);
 	i += setconv(spec, str + i);
-
 	return (i);
 }
 
-while (ft_strchr("#0-+ hljz sSpdDioOuUxXcC", str[i]))
-
-
-
-
-
-int		ft_printf(const char *format, ...)
+int			ft_printf(const char *format, ...)
 {
 	int				i;
 	int				ans;
 	t_print			print;
 	t_spec			spec;
 
+	// pour gagner 2 lignes, passer ans dans print;
 	i = 0;
 	ans = 0;
-	initprint(&print, format);
-	while(format[i])
+	va_start(print.ap, format);
+	initprint(&print);
+	while (format[i])
 	{
 		if (format[i] != '%')
 		{
-			addto(format[i], buf, &pos);
+			addto(format[i], &print);
 			++ans;
 		}
 		else
 		{
-			++i;
-			i += setspec(&spec, format + i);
-			ans += conv(spec, &print);
+			i += setspec(&spec, format + i + 1) + 1;
+			ans += conv(&spec, &print);
 		}
 		++i;
 	}
-	write(1, buf, pos);
+	write(1, print.buf, print.pos);
 	va_end(print.ap);
 	return (ans);
-}
-
-int	main(void)
-{
-	ft_putnbrendl(ft_printf("bonjour"));
-	return (0);
 }

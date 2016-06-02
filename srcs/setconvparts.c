@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   setconvparts.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2016/06/02 19:02:45 by nmougino          #+#    #+#             */
+/*   Updated: 2016/06/02 20:17:59 by nmougino         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ft_printf.h"
 
 int	setflag(t_spec *spec, const char *str)
@@ -34,7 +46,7 @@ int	setmfwi(t_spec *spec, const char *str)
 
 	i = 0;
 	spec->mfw = 0;
-	while (ft_strchr("0123456789", str[i])
+	while (ft_strchr("0123456789", str[i]))
 	{
 		spec->mfw *= 10;
 		spec->mfw += (str[i] - '0');
@@ -53,7 +65,7 @@ int	setprec(t_spec *spec, const char *str)
 	{
 		++i;
 		spec->prec = 0;
-		while (ft_strchr("1234567890", str[i])
+		while (ft_strchr("1234567890", str[i]))
 		{
 			spec->prec *= 10;
 			spec->prec += (str[i] - '0');
@@ -69,7 +81,7 @@ int	setmodi(t_spec *spec, const char *str)
 
 	i = 0;
 	spec->hljz = E_NO;
-	while (ft_strchr("hljz", str[i])
+	while (ft_strchr("hljz", str[i]))
 	{
 		spec->hljz = (str[i] == 'h' && spec->hljz == E_H) ? E_HH : spec->hljz;
 		spec->hljz = (str[i] == 'h' && spec->hljz == E_NO) ? E_H : spec->hljz;

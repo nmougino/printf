@@ -6,7 +6,7 @@
 /*   By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/02 19:02:45 by nmougino          #+#    #+#             */
-/*   Updated: 2016/06/02 20:17:59 by nmougino         ###   ########.fr       */
+/*   Updated: 2016/06/02 22:29:21 by nmougino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,10 +100,7 @@ int	setconv(t_spec *spec, const char *str)
 
 	i = 0;
 	if (!(ft_strchr("sSpdDioOuUxXcC%", str[i])))
-	{
-		ft_putendl("Invalid conversion command");
-		exit(0);
-	}
+		return (-1);
 	spec->conv = str[i];
 	return (i);
 }

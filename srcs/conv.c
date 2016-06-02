@@ -6,7 +6,7 @@
 /*   By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/02 19:00:03 by nmougino          #+#    #+#             */
-/*   Updated: 2016/06/02 20:47:01 by nmougino         ###   ########.fr       */
+/*   Updated: 2016/06/02 23:03:39 by nmougino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,14 +17,19 @@ int	conv(t_spec *spec, t_print *print)
 	int	(*convf)(t_spec*, t_print*);
 
 	convf = print->convftab[ft_strnloc(spec->conv, "sSpdDioOuUxXcC", 14)];
-	return (convf(spec, print););
+	return (convf(spec, print));
 }
 
 int	conv_s(t_spec *spec, t_print *print)
 {
+	int		i;
+	char	*s;
+
+	i = 0;
+	s = (char *)urecupparam(E_LONG, print->ap);
 	spec = NULL;
-	print = NULL;
-	ft_putendl("FONCTION DE CONVERSION NON TERMINEE");
+	while (s[i])
+		addto(s[i], print);
 	return (0);
 }
 

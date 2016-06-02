@@ -6,7 +6,7 @@
 /*   By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/31 18:09:25 by nmougino          #+#    #+#             */
-/*   Updated: 2016/06/02 20:38:59 by nmougino         ###   ########.fr       */
+/*   Updated: 2016/06/02 22:59:43 by nmougino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ void	addto(char c, t_print *print)
 		(print->pos) = 0;
 	}
 	print->buf[print->pos] = c;
+	++(print->pos);
 	++(print->pos);
 }
 
@@ -40,31 +41,34 @@ static void	initprint(t_print *print)
 	//print->convftab[12] = &conv_c;
 	print->convftab[13] = &conv_C;
 	print->pos = 0;
+	print->ans = 0;
 }
 
 static int	setspec(t_spec *spec, const char *str)
 {
 	int		i;
+	int		tmp;
 
+	tmp = 0;
 	i = 0;
 	i += setflag(spec, str);
 	i += setmfwi(spec, str + i);
 	i += setprec(spec, str + i);
 	i += setmodi(spec, str + i);
-	i += setconv(spec, str + i);
+	if ((tmp = setconv(spec, str + i) == -1))
+		return (-1);
+	i += tmp;
 	return (i);
 }
 
 int			ft_printf(const char *format, ...)
 {
 	int				i;
-	int				ans;
+	int				tmp;
 	t_print			print;
 	t_spec			spec;
 
-	// pour gagner 2 lignes, passer ans dans print;
 	i = 0;
-	ans = 0;
 	va_start(print.ap, format);
 	initprint(&print);
 	while (format[i])
@@ -72,16 +76,19 @@ int			ft_printf(const char *format, ...)
 		if (format[i] != '%')
 		{
 			addto(format[i], &print);
-			++ans;
+			++(print.ans);
 		}
 		else
 		{
-			i += setspec(&spec, format + i + 1) + 1;
-			ans += conv(&spec, &print);
+			if ((tmp = setspec(&spec, format + i + 1) + 1) == 0)
+				return (-1);
+			i += tmp;
+			if (conv(&spec, &print) == -1)
+				return (-1);
 		}
 		++i;
 	}
 	write(1, print.buf, print.pos);
 	va_end(print.ap);
-	return (ans);
+	return (print.ans);
 }

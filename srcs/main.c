@@ -6,7 +6,7 @@
 /*   By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/31 18:04:34 by nmougino          #+#    #+#             */
-/*   Updated: 2016/06/02 20:38:44 by nmougino         ###   ########.fr       */
+/*   Updated: 2016/06/02 22:56:44 by nmougino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,6 @@
 
 int		main(void)
 {
-	ft_putnbrendl(ft_printf("bonjour %C\n", 123252));
+	ft_putnbrendl(ft_printf("bonjour %s\n", "Alexandre"));
 	return (0);
 }

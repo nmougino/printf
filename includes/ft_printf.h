@@ -6,7 +6,7 @@
 /*   By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/31 18:06:49 by nmougino          #+#    #+#             */
-/*   Updated: 2016/06/02 20:30:16 by nmougino         ###   ########.fr       */
+/*   Updated: 2016/06/02 23:03:17 by nmougino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 # include <unistd.h>
 # include <stdarg.h>
 
-# define BUF_SIZE 1024
+# define BUF_SIZE	1024
 
 enum				e_hljz
 {
@@ -30,12 +30,24 @@ enum				e_hljz
 	E_Z
 };
 
+enum				e_type
+{
+	E_CHAR = 0,
+	E_SHORT,
+	E_INT,
+	E_LONG,
+	E_LLONG,
+	E_SIZE_T,
+	E_INTMAX
+};
+
 typedef struct		s_print
 {
 	char			buf[BUF_SIZE];
 	unsigned int	pos;
 	va_list			ap;
 	void			*convftab[14];
+	int				ans;
 }					t_print;
 
 typedef struct		s_spec
@@ -61,7 +73,10 @@ int					setconv(t_spec *spec, const char *str);
 
 int					conv_C(t_spec *spec, t_print *print);
 
-int	conv(t_spec *spec, t_print *print);
+int					conv(t_spec *spec, t_print *print);
+
+intmax_t			recupparam(int type, va_list ap);
+uintmax_t			urecupparam(int type, va_list ap);
 
 /*
 // ne pas malloc,

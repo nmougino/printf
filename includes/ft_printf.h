@@ -6,7 +6,7 @@
 /*   By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/31 18:06:49 by nmougino          #+#    #+#             */
-/*   Updated: 2016/06/01 22:42:21 by nmougino         ###   ########.fr       */
+/*   Updated: 2016/06/02 17:50:47 by nmougino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,17 @@
 
 # define BUF_SIZE 1024
 
+enum				e_hljz
+{
+	E_NO;
+	E_HH;
+	E_H;
+	E_L;
+	E_LL;
+	E_J;
+	E_Z;
+};
+
 typedef struct		s_print
 {
 	char			buf[BUF_SIZE];
@@ -28,17 +39,22 @@ typedef struct		s_print
 
 typedef struct		s_spec
 {
+	//	flags:		X_X_X_#_0_-_' '_+
 	char			flags;
+	unsigned int	mfw;
+	int				prec;
+	char			hljz;
+	char			conv;
 }					t_spec;
 
 
 int					ft_printf(const char *format, ...);
 
-
-
-
-
-
+int					setflag(t_spec *spec, const char *str);
+int					setmfwi(t_spec *spec, const char *str);
+int					setprec(t_spec *spec, const char *str);
+int					setmodi(t_spec *spec, const char *str);
+int					setconv(t_spec *spec, const char *str);
 
 /*
 // ne pas malloc,

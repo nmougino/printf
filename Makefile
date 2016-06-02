@@ -6,7 +6,7 @@
 #    By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/04/05 16:20:26 by nmougino          #+#    #+#              #
-#    Updated: 2016/05/31 18:04:15 by nmougino         ###   ########.fr        #
+#    Updated: 2016/06/02 17:50:08 by nmougino         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,6 +31,7 @@ OBJDIR =	objs
 
 #	Liste des sources
 SRC =		main.c \
+			setconvparts.c \
 			ft_printf.c
 LIB =		ft
 OBJ =		$(SRC:.c=.o)
@@ -106,7 +107,7 @@ lib: $(OBJDIR) $(OBJP)
 deplib:
 	@mkdir -p libs
 	$(addprefix make -C ,$(addsuffix /$(\n), $(LIBP)))
-	
+
 #	MrProper's legacy
 clean:
 	@echo "\n$(RED)@ Objects deletion$(DEF)"

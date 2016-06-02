@@ -6,7 +6,7 @@
 /*   By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/31 18:09:25 by nmougino          #+#    #+#             */
-/*   Updated: 2016/06/01 22:43:35 by nmougino         ###   ########.fr       */
+/*   Updated: 2016/06/02 17:50:12 by nmougino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,91 +30,6 @@ static void	initprint(t_print *print, const char *format)
 	va_start(print->ap, format);
 	print->pos = 0;
 }
-
-
-
-static int	setflag(t_spec *spec, const char *str)
-{
-	int i;
-
-	i = 0;
-	while (ft_strchr("#0-+", str[i]))
-	{
-		if (str[i] == '#')
-			spec->flags |= (1 << 4);
-		if (str[i] == '0' && (!(spec->flags & (1 << 2))))
-			spec->flags |= (1 << 3);
-		if (str[i] == '-')
-		{
-			spec->flags |= (1 << 2);
-			spec->flags &= !(1 << 3);
-		}
-		if (str[i] == ' ' && (!(spec->flags & 1)))
-			spec->flags |= (1 << 1);
-		if (str[i] == '+')
-		{
-			spec->flags |= 1;
-			spec->flags &= !(1 << 1);
-		}
-		i++;
-	}
-	return (i);
-}
-
-static int	setmfwi(t_spec *spec, const char *str)
-{
-	int		i;
-
-	i = 0;
-	while (ft_strchr("", str[i])
-	{
-
-		i++;
-	}
-	return (i);
-}
-
-static int	setprec(t_spec *spec, const char *str)
-{
-	int		i;
-
-	i = 0;
-	while (ft_strchr("", str[i])
-	{
-
-		i++;
-	}
-	return (i);
-}
-
-static int	setmodi(t_spec *spec, const char *str)
-{
-	int		i;
-
-	i = 0;
-	while (ft_strchr("", str[i])
-	{
-
-		i++;
-	}
-	return (i);
-}
-
-static int	setconv(t_spec *spec, const char *str)
-{
-	int		i;
-
-	i = 0;
-	while (ft_strchr("", str[i])
-	{
-
-		i++;
-	}
-	return (i);
-}
-
-
-
 
 
 static int	setspec(t_spec* spec, const char *str)

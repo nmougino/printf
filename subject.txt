@@ -3,7 +3,7 @@ s S p d D i o O u U x X c C
 
 flags::
 
-	'#' :	c d i n p s u
+	'#' :	c d i p s u
 				->>> no effects
 			o
 				->>> the precision of the number is increased to force
@@ -39,7 +39,7 @@ precision::
 		->>> gives the minimum number of digits to appear
 	s
 		->>> the maximum number of characters to be printed from a string for s conversion
-	
+
 
 
 http://alain.dancel.free.fr/c/c60_10.htm ::

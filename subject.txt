@@ -1,4 +1,47 @@
 
+s S p d D i o O u U x X c C
+
+flags::
+
+	'#' :	c d i n p s u
+				->>> no effects
+			o
+				->>> the precision of the number is increased to force
+				the first character of the output string to a zero
+				a tester: cas du parametre precision: selon tanit, on met la precision puis on rajoute un zero
+			x X
+				->>> a non zero result has the string 0x (or 0X) prepended to it.
+
+	'0' :	->>> the converted value is padded on the left with zeros rather than blanks
+			d i o u i x X
+				->>> if a precision is given, 0 flag is ignored
+
+	'-' :	the converted value is to be left adjusted on the field boundary.
+			the converted value is padded to right with blanks,
+			rather than on the left with blanks or zeros
+
+	' ' :	d i
+			->>> a blank should be left before a positive number produced by a SIGNED conversion
+
+	'+' :	d i
+			->>> A sign must always be placed before a number produced by a SIGNED conversion
+
+MFW::
+
+	if the converted value has fewer characters than the field width, it will padded with spaces on the left
+	flag '-'
+		->> right
+	to fill out the field width
+
+precision::
+
+	d i o u i x X
+		->>> gives the minimum number of digits to appear
+	s
+		->>> the maximum number of characters to be printed from a string for s conversion
+	
+
+
 http://alain.dancel.free.fr/c/c60_10.htm ::
 
 Elle permet l'écriture formatée sur le flux standard de sortie stdout (l'écran par défaut).

@@ -6,7 +6,7 @@
 /*   By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/31 18:06:49 by nmougino          #+#    #+#             */
-/*   Updated: 2016/06/02 23:03:17 by nmougino         ###   ########.fr       */
+/*   Updated: 2016/06/03 19:06:15 by nmougino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,19 @@ int					setprec(t_spec *spec, const char *str);
 int					setmodi(t_spec *spec, const char *str);
 int					setconv(t_spec *spec, const char *str);
 
+int					conv_s(t_spec *spec, t_print *print);
+int					conv_S(t_spec *spec, t_print *print);
+int					conv_p(t_spec *spec, t_print *print);
+int					conv_d(t_spec *spec, t_print *print);
+int					conv_D(t_spec *spec, t_print *print);
+int					conv_i(t_spec *spec, t_print *print);
+int					conv_o(t_spec *spec, t_print *print);
+int					conv_O(t_spec *spec, t_print *print);
+int					conv_u(t_spec *spec, t_print *print);
+int					conv_U(t_spec *spec, t_print *print);
+int					conv_x(t_spec *spec, t_print *print);
+int					conv_X(t_spec *spec, t_print *print);
+int					conv_c(t_spec *spec, t_print *print);
 int					conv_C(t_spec *spec, t_print *print);
 
 int					conv(t_spec *spec, t_print *print);

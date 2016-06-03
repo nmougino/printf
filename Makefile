@@ -6,7 +6,7 @@
 #    By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/04/05 16:20:26 by nmougino          #+#    #+#              #
-#    Updated: 2016/06/02 23:00:07 by nmougino         ###   ########.fr        #
+#    Updated: 2016/06/03 19:11:10 by nmougino         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,6 +34,7 @@ SRC =		main.c \
 			setconvparts.c \
 			conv.c \
 			recupparam.c \
+			addto.c \
 			ft_printf.c
 LIB =		ft
 OBJ =		$(SRC:.c=.o)

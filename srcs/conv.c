@@ -6,7 +6,7 @@
 /*   By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/02 19:00:03 by nmougino          #+#    #+#             */
-/*   Updated: 2016/06/02 23:03:39 by nmougino         ###   ########.fr       */
+/*   Updated: 2016/06/03 19:08:03 by nmougino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,8 @@ int	conv_s(t_spec *spec, t_print *print)
 	s = (char *)urecupparam(E_LONG, print->ap);
 	spec = NULL;
 	while (s[i])
-		addto(s[i], print);
-	return (0);
+		addto(s[i++], print);
+	return (i);
 }
 
 int	conv_S(t_spec *spec, t_print *print)

@@ -6,39 +6,27 @@
 /*   By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/31 18:09:25 by nmougino          #+#    #+#             */
-/*   Updated: 2016/06/02 22:59:43 by nmougino         ###   ########.fr       */
+/*   Updated: 2016/06/03 19:15:53 by nmougino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	addto(char c, t_print *print)
-{
-	if (++(print->pos) >= BUF_SIZE)
-	{
-		write(1, print->buf, BUF_SIZE);
-		(print->pos) = 0;
-	}
-	print->buf[print->pos] = c;
-	++(print->pos);
-	++(print->pos);
-}
-
 static void	initprint(t_print *print)
 {
-	//print->convftab[0] = &conv_s;
-	//print->convftab[1] = &conv_S;
-	//print->convftab[2] = &conv_p;
-	//print->convftab[3] = &conv_d;
-	//print->convftab[4] = &conv_D;
-	//print->convftab[5] = &conv_i;
-	//print->convftab[6] = &conv_o;
-	//print->convftab[7] = &conv_O;
-	//print->convftab[8] = &conv_u;
-	//print->convftab[9] = &conv_U;
-	//print->convftab[10] = &conv_x;
-	//print->convftab[11] = &conv_X;
-	//print->convftab[12] = &conv_c;
+	print->convftab[0] = &conv_s;
+	print->convftab[1] = &conv_S;
+	print->convftab[2] = &conv_p;
+	print->convftab[3] = &conv_d;
+	print->convftab[4] = &conv_D;
+	print->convftab[5] = &conv_i;
+	print->convftab[6] = &conv_o;
+	print->convftab[7] = &conv_O;
+	print->convftab[8] = &conv_u;
+	print->convftab[9] = &conv_U;
+	print->convftab[10] = &conv_x;
+	print->convftab[11] = &conv_X;
+	print->convftab[12] = &conv_c;
 	print->convftab[13] = &conv_C;
 	print->pos = 0;
 	print->ans = 0;
@@ -74,10 +62,7 @@ int			ft_printf(const char *format, ...)
 	while (format[i])
 	{
 		if (format[i] != '%')
-		{
 			addto(format[i], &print);
-			++(print.ans);
-		}
 		else
 		{
 			if ((tmp = setspec(&spec, format + i + 1) + 1) == 0)

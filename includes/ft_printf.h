@@ -19,10 +19,10 @@
 
 # define BUF_SIZE	1024
 
-# ifdef WINDIR
-#  define intmax_t	long
-#  define uintmax_t	unsigned long
-# endif
+//# ifdef WINDIR
+	typedef long	intmax_t;
+	typedef unsigned long	uintmax_t;
+//# endif
 
 enum				e_hljz
 {

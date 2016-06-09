@@ -6,7 +6,7 @@
 /*   By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/31 18:06:49 by nmougino          #+#    #+#             */
-/*   Updated: 2016/06/03 19:06:15 by nmougino         ###   ########.fr       */
+/*   Updated: 2016/06/09 15:59:28 by nmougino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,15 @@
 # include <unistd.h>
 # include <stdarg.h>
 
-# define BUF_SIZE	1024
+# define BUF_SIZE	300
 
 # ifdef WINDIR
 #  define intmax_t	long
 #  define uintmax_t	unsigned long
 # endif
+
+# define POS		1
+# define NEG		0
 
 enum				e_hljz
 {
@@ -37,13 +40,13 @@ enum				e_hljz
 
 enum				e_type
 {
-	E_CHAR = 0,
+	E_INT = 0,
+	E_CHAR,
 	E_SHORT,
-	E_INT,
 	E_LONG,
 	E_LLONG,
-	E_SIZE_T,
-	E_INTMAX
+	E_INTMAX,
+	E_SIZE_T
 };
 
 typedef struct		s_print

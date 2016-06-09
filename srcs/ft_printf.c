@@ -6,13 +6,13 @@
 /*   By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/31 18:09:25 by nmougino          #+#    #+#             */
-/*   Updated: 2016/06/03 19:15:53 by nmougino         ###   ########.fr       */
+/*   Updated: 2016/06/09 22:20:39 by nmougino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static void	initprint(t_print *print)
+static void	initprint(t_print *print, t_spec *spec)
 {
 	print->convftab[0] = &conv_s;
 	print->convftab[1] = &conv_S;
@@ -30,6 +30,7 @@ static void	initprint(t_print *print)
 	print->convftab[13] = &conv_C;
 	print->pos = 0;
 	print->ans = 0;
+	print->spec = spec;
 }
 
 static int	setspec(t_spec *spec, const char *str)
@@ -58,7 +59,7 @@ int			ft_printf(const char *format, ...)
 
 	i = 0;
 	va_start(print.ap, format);
-	initprint(&print);
+	initprint(&print, &spec);
 	while (format[i])
 	{
 		if (format[i] != '%')
@@ -68,8 +69,7 @@ int			ft_printf(const char *format, ...)
 			if ((tmp = setspec(&spec, format + i + 1) + 1) == 0)
 				return (-1);
 			i += tmp;
-			if (conv(&spec, &print) == -1)
-				return (-1);
+			conv(&spec, &print);
 		}
 		++i;
 	}

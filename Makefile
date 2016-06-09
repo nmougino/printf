@@ -6,13 +6,14 @@
 #    By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/04/05 16:20:26 by nmougino          #+#    #+#              #
-#    Updated: 2016/06/03 19:11:10 by nmougino         ###   ########.fr        #
+#    Updated: 2016/06/09 20:57:04 by nmougino         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 #	Compilator - clang est plus sur que gcc
 CC =		clang
-CFLAGS =	-Wall -Wextra -Werror
+#CFLAGS =	-Wall -Wextra -Werror
+CFLAGS =	-Wall -Wextra
 ADDFLAGS =
 
 #	Binary
@@ -33,6 +34,8 @@ OBJDIR =	objs
 SRC =		main.c \
 			setconvparts.c \
 			conv.c \
+			conv_num.c \
+			applyparams.c \
 			recupparam.c \
 			addto.c \
 			ft_printf.c

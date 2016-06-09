@@ -10,4 +10,5 @@ void	addto(char c, t_print *print)
 	print->buf[print->pos] = c;
 	++(print->pos);
 	++(print->ans);
+	--(print->spec->mfw);
 }

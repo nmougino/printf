@@ -6,7 +6,7 @@
 /*   By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/02 19:02:45 by nmougino          #+#    #+#             */
-/*   Updated: 2016/06/02 22:29:21 by nmougino         ###   ########.fr       */
+/*   Updated: 2016/06/09 20:36:47 by nmougino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,8 @@ int	setflag(t_spec *spec, const char *str)
 	int i;
 
 	i = 0;
-	while (ft_strchr("#0-+", str[i]))
+	spec->flags = 0;
+	while (ft_strchr("#0-+ ", str[i]))
 	{
 		if (str[i] == '#')
 			spec->flags |= (1 << 4);
@@ -26,14 +27,14 @@ int	setflag(t_spec *spec, const char *str)
 		if (str[i] == '-')
 		{
 			spec->flags |= (1 << 2);
-			spec->flags &= !(1 << 3);
+			spec->flags &= ~(1 << 3);
 		}
 		if (str[i] == ' ' && (!(spec->flags & 1)))
 			spec->flags |= (1 << 1);
 		if (str[i] == '+')
 		{
 			spec->flags |= 1;
-			spec->flags &= !(1 << 1);
+			spec->flags &= ~(1 << 1);
 		}
 		i++;
 	}

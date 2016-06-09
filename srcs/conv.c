@@ -6,7 +6,7 @@
 /*   By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/02 19:00:03 by nmougino          #+#    #+#             */
-/*   Updated: 2016/06/09 16:54:06 by nmougino         ###   ########.fr       */
+/*   Updated: 2016/06/09 20:12:00 by nmougino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,48 +40,6 @@ void	conv_S(t_spec *spec, t_print *print)
 }
 
 void	conv_p(t_spec *spec, t_print *print)
-{
-	spec = NULL;
-	print = NULL;
-	ft_putendl("FONCTION DE CONVERSION NON TERMINEE");
-}
-
-void	conv_o(t_spec *spec, t_print *print)
-{
-	spec = NULL;
-	print = NULL;
-	ft_putendl("FONCTION DE CONVERSION NON TERMINEE");
-}
-
-void	conv_O(t_spec *spec, t_print *print)
-{
-	spec = NULL;
-	print = NULL;
-	ft_putendl("FONCTION DE CONVERSION NON TERMINEE");
-}
-
-void	conv_u(t_spec *spec, t_print *print)
-{
-	spec = NULL;
-	print = NULL;
-	ft_putendl("FONCTION DE CONVERSION NON TERMINEE");
-}
-
-void	conv_U(t_spec *spec, t_print *print)
-{
-	spec = NULL;
-	print = NULL;
-	ft_putendl("FONCTION DE CONVERSION NON TERMINEE");
-}
-
-void	conv_x(t_spec *spec, t_print *print)
-{
-	spec = NULL;
-	print = NULL;
-	ft_putendl("FONCTION DE CONVERSION NON TERMINEE");
-}
-
-void	conv_X(t_spec *spec, t_print *print)
 {
 	spec = NULL;
 	print = NULL;

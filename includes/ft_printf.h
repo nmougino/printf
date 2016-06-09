@@ -6,7 +6,7 @@
 /*   By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/31 18:06:49 by nmougino          #+#    #+#             */
-/*   Updated: 2016/06/09 15:59:28 by nmougino         ###   ########.fr       */
+/*   Updated: 2016/06/09 22:37:24 by nmougino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,6 @@
 	typedef long	intmax_t;
 	typedef unsigned long	uintmax_t;
 //# endif
-
-# define POS		1
-# define NEG		0
 
 enum				e_hljz
 {
@@ -49,6 +46,16 @@ enum				e_type
 	E_SIZE_T
 };
 
+typedef struct		s_spec
+{
+	//	flags:		X_X_X_#_0_-_' '_+
+	char			flags;
+	int				mfw;
+	int				prec;
+	char			hljz;
+	char			conv;
+}					t_spec;
+
 typedef struct		s_print
 {
 	char			buf[BUF_SIZE];
@@ -56,20 +63,16 @@ typedef struct		s_print
 	va_list			ap;
 	void			*convftab[14];
 	int				ans;
+	t_spec			*spec;
 }					t_print;
 
-typedef struct		s_spec
-{
-	//	flags:		X_X_X_#_0_-_' '_+
-	char			flags;
-	unsigned int	mfw;
-	int				prec;
-	char			hljz;
-	char			conv;
-}					t_spec;
-
-
 int					ft_printf(const char *format, ...);
+
+void				applyplusspace(t_print *print, t_spec *spec, int s);
+void				applyzero(t_print *print, t_spec *spec, int len);
+void				applysharp(t_print *print, t_spec *spec);
+void				applymfw(t_print *print, t_spec *spec, int mfw);
+void				applynumprec(t_print *print, t_spec *spec, int len);
 
 void				addto(char c, t_print *print);
 
@@ -79,22 +82,22 @@ int					setprec(t_spec *spec, const char *str);
 int					setmodi(t_spec *spec, const char *str);
 int					setconv(t_spec *spec, const char *str);
 
-int					conv_s(t_spec *spec, t_print *print);
-int					conv_S(t_spec *spec, t_print *print);
-int					conv_p(t_spec *spec, t_print *print);
-int					conv_d(t_spec *spec, t_print *print);
-int					conv_D(t_spec *spec, t_print *print);
-int					conv_i(t_spec *spec, t_print *print);
-int					conv_o(t_spec *spec, t_print *print);
-int					conv_O(t_spec *spec, t_print *print);
-int					conv_u(t_spec *spec, t_print *print);
-int					conv_U(t_spec *spec, t_print *print);
-int					conv_x(t_spec *spec, t_print *print);
-int					conv_X(t_spec *spec, t_print *print);
-int					conv_c(t_spec *spec, t_print *print);
-int					conv_C(t_spec *spec, t_print *print);
+void				conv_s(t_spec *spec, t_print *print);
+void				conv_S(t_spec *spec, t_print *print);
+void				conv_p(t_spec *spec, t_print *print);
+void				conv_d(t_spec *spec, t_print *print);
+void				conv_D(t_spec *spec, t_print *print);
+void				conv_i(t_spec *spec, t_print *print);
+void				conv_o(t_spec *spec, t_print *print);
+void				conv_O(t_spec *spec, t_print *print);
+void				conv_u(t_spec *spec, t_print *print);
+void				conv_U(t_spec *spec, t_print *print);
+void				conv_x(t_spec *spec, t_print *print);
+void				conv_X(t_spec *spec, t_print *print);
+void				conv_c(t_spec *spec, t_print *print);
+void				conv_C(t_spec *spec, t_print *print);
 
-int					conv(t_spec *spec, t_print *print);
+void				conv(t_spec *spec, t_print *print);
 
 intmax_t			recupparam(int type, va_list ap);
 uintmax_t			urecupparam(int type, va_list ap);

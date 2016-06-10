@@ -6,7 +6,7 @@
 /*   By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/31 18:04:34 by nmougino          #+#    #+#             */
-/*   Updated: 2016/06/09 22:42:17 by nmougino         ###   ########.fr       */
+/*   Updated: 2016/06/10 17:11:35 by nmougino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,6 +83,38 @@ int		main(void)
 	printf("|%+10.5d|\n", 123);
 	ft_printf("|%+10.5d|\n", -123);
 	printf("|%+10.5d|\n\n", -123);
+
+	ft_putendl("-PRECISION\n");
+
+	ft_printf("|%10d|\n", 123);
+	printf("|%10d|\n", 123);
+	ft_printf("|%10d|\n", -123);
+	printf("|%10d|\n\n", -123);
+
+	ft_printf("|%#10d|\n", 123);
+	printf("|%#10d|\n", 123);
+	ft_printf("|%#10d|\n", -123);
+	printf("|%#10d|\n\n", -123);
+
+	ft_printf("|%0+10d|\n", 123);
+	printf("|%0+10d|\n", 123);
+	ft_printf("|%010d|\n", -123);
+	printf("|%010d|\n\n", -123);
+
+	ft_printf("|%-10d|\n", 123);
+	printf("|%-10d|\n", 123);
+	ft_printf("|%-10d|\n", -123);
+	printf("|%-10d|\n\n", -123);
+
+	ft_printf("|% 10d|\n", 123);
+	printf("|% 10d|\n", 123);
+	ft_printf("|% 10d|\n", -123);
+	printf("|% 10d|\n\n", -123);
+
+	ft_printf("|%+10d|\n", 123);
+	printf("|%+10d|\n", 123);
+	ft_printf("|%+10d|\n", -123);
+	printf("|%+10d|\n\n", -123);
 
 	//printf("lapin,% .5d,", 123);
 	//printf("lapin,%+.5d,", 123);

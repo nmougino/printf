@@ -6,7 +6,7 @@
 /*   By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/02 19:02:45 by nmougino          #+#    #+#             */
-/*   Updated: 2016/06/09 20:36:47 by nmougino         ###   ########.fr       */
+/*   Updated: 2016/06/10 17:06:49 by nmougino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,7 @@ int	setprec(t_spec *spec, const char *str)
 	if (str[i] == '.')
 	{
 		++i;
+		spec->flags &= ~(1 << 3);
 		spec->prec = 0;
 		while (ft_strchr("1234567890", str[i]))
 		{

@@ -42,23 +42,35 @@ static void	sitoa(intmax_t p, t_print *print, int l)
 
 void	conv_i(t_spec *spec, t_print *print)
 {
+	int			i;
 	intmax_t	p;
 
  	p = recupparam(spec->hljz, print->ap);
-	applyplusspace(print, spec, p > 0);
+	i = (p < 0) || (spec->flags & 3);
+	++spec->mfw;
+	(spec->flags & (1 << 3)) ? applyplusspace(print, spec, p > 0) : --spec->mfw;
+	(!(spec->flags & (1 << 2))) ? applymfw(print, spec, spec->mfw -
+		(ft_max(spec->prec + i, ft_nbrlen(ft_abs(p)) + i))) : 0;
+	!(spec->flags & (1 << 3)) ? applyplusspace(print, spec, p > 0) : 0;
+	applynumprec(print, spec, ft_nbrlen(ft_abs(p)));
 	sitoa(p, print, ft_nbrlen(ft_abs(p)));
+	(spec->flags & (1 << 2)) ? applymfw(print, spec, spec->mfw) : 0;
 }
 
 void	conv_d(t_spec *spec, t_print *print)
 {
+	int			i;
 	intmax_t	p;
 
  	p = recupparam(spec->hljz, print->ap);
-
-	(!(spec->flags & (1 << 2))) ? applymfw(print, spec, spec->mfw - (ft_max(spec->prec, ft_nbrlen(p)))) : 0;
-		applyplusspace(print, spec, p > 0);
-		applynumprec(print, spec, ft_nbrlen(ft_abs(p)));
-		sitoa(p, print, ft_nbrlen(ft_abs(p)));
+	i = (p < 0) || (spec->flags & 3);
+	++spec->mfw;
+	(spec->flags & (1 << 3)) ? applyplusspace(print, spec, p > 0) : --spec->mfw;
+	(!(spec->flags & (1 << 2))) ? applymfw(print, spec, spec->mfw -
+		(ft_max(spec->prec + i, ft_nbrlen(ft_abs(p)) + i))) : 0;
+	!(spec->flags & (1 << 3)) ? applyplusspace(print, spec, p > 0) : 0;
+	applynumprec(print, spec, ft_nbrlen(ft_abs(p)));
+	sitoa(p, print, ft_nbrlen(ft_abs(p)));
 	(spec->flags & (1 << 2)) ? applymfw(print, spec, spec->mfw) : 0;
 }
 

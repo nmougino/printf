@@ -6,7 +6,7 @@
 /*   By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/31 18:06:49 by nmougino          #+#    #+#             */
-/*   Updated: 2016/06/10 18:26:04 by nmougino         ###   ########.fr       */
+/*   Updated: 2016/06/10 19:24:18 by nmougino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,15 @@ enum				e_type
 	E_LLONG,
 	E_INTMAX,
 	E_SIZE_T
+};
+
+enum				e_flags
+{
+	E_SHARP = 1 << 4,
+	E_ZERO = 1 << 3,
+	E_DASH = 1 << 2,
+	E_SPACE = 1 << 1,
+	E_PLUS = 1
 };
 
 typedef struct		s_spec

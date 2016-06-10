@@ -6,7 +6,7 @@
 #    By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/04/05 16:20:26 by nmougino          #+#    #+#              #
-#    Updated: 2016/06/09 20:57:04 by nmougino         ###   ########.fr        #
+#    Updated: 2016/06/10 18:27:07 by nmougino         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,6 +37,8 @@ SRC =		main.c \
 			conv_num.c \
 			applyparams.c \
 			recupparam.c \
+			sitoa.c \
+			uitoabase.c \
 			addto.c \
 			ft_printf.c
 LIB =		ft

@@ -6,7 +6,7 @@
 /*   By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/02 19:00:03 by nmougino          #+#    #+#             */
-/*   Updated: 2016/06/11 19:06:05 by nmougino         ###   ########.fr       */
+/*   Updated: 2016/06/11 20:12:22 by nmougino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,16 +45,22 @@ void	conv_S(t_spec *spec, t_print *print)
 
 void	conv_p(t_spec *spec, t_print *print)
 {
-	spec = NULL;
-	print = NULL;
-	ft_putendl("FONCTION DE CONVERSION NON TERMINEE");
+	spec->flags |= E_SHARP;
+	spec->hljz = E_L;
+	spec->prec = -1;
+	spec->conv = 'x';
+	conv_x(spec, print);
+
 }
 
 void	conv_c(t_spec *spec, t_print *print)
 {
-	spec = NULL;
-	print = NULL;
-	ft_putendl("FONCTION DE CONVERSION NON TERMINEE");
+	intmax_t	p;
+
+ 	p = recupparam(spec->hljz, print->ap);
+	(!(spec->flags & E_DASH)) ? applymfw(print, spec, spec->mfw - 1) : 0;
+	addto(p, print);
+	(spec->flags & E_DASH) ? applymfw(print, spec, spec->mfw) : 0;
 }
 
 void	conv_C(t_spec *spec, t_print *print)

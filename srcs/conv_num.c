@@ -86,8 +86,12 @@ void	conv_u(t_spec *spec, t_print *print)
 {
 	uintmax_t	p;
 
-	p = urecupparam(spec->hljz, print->ap);
-	uitoabase(p, "0123456789", print, ft_nbrlen(p));
+ 	p = urecupparam(spec->hljz, print->ap);
+	(!(spec->flags & E_DASH)) ? applymfw(print, spec, spec->mfw -
+		(ft_max(spec->prec, ft_nbrlenbase(p, 10)))) : 0;
+	applynumprec(print, spec, ft_nbrlenbase(p, 10));
+	uitoabase(p, "0123456789", print, ft_nbrlenbase(p, 10));
+	(spec->flags & E_DASH) ? applymfw(print, spec, spec->mfw) : 0;
 }
 
 void	conv_D(t_spec *spec, t_print *print)

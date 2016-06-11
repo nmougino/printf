@@ -6,7 +6,7 @@
 /*   By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/02 19:00:03 by nmougino          #+#    #+#             */
-/*   Updated: 2016/06/09 20:12:00 by nmougino         ###   ########.fr       */
+/*   Updated: 2016/06/11 19:06:05 by nmougino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,16 +20,20 @@ void	conv(t_spec *spec, t_print *print)
 	convf(spec, print);
 }
 
+//segfault si le param est un int....
 void	conv_s(t_spec *spec, t_print *print)
 {
 	int		i;
+	int		neg;
 	char	*s;
 
 	i = 0;
 	s = (char *)urecupparam(E_LONG, print->ap);
-	spec = NULL;
-	while (s[i])
+	neg = (spec->prec > -1 ? ft_min(spec->prec, ft_strlen(s)) : ft_strlen(s));
+	(!(spec->flags & E_DASH)) ? applymfw(print, spec, spec->mfw - neg) : 0;
+	while (s[i] && (spec->prec--))
 		addto(s[i++], print);
+	(spec->flags & E_DASH) ? applymfw(print, spec, spec->mfw) : 0;
 }
 
 void	conv_S(t_spec *spec, t_print *print)

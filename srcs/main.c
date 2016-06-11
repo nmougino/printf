@@ -6,7 +6,7 @@
 /*   By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/31 18:04:34 by nmougino          #+#    #+#             */
-/*   Updated: 2016/06/11 16:44:18 by nmougino         ###   ########.fr       */
+/*   Updated: 2016/06/11 19:07:36 by nmougino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int		main(void)
 	//ft_putnbrendl(ft_printf(",bonjour %+d,\n", 123));
 	//ft_putnbrendl(ft_printf(",bonjour % d,\n", 123));
 	//ft_putnbrendl(ft_printf(",bonjour %#d,\n", 123));
-	ft_putendl("+PRECISION\n");
+	/*ft_putendl("+PRECISION\n");
 
 	ft_printf("|%.5d|\n", 123);
 	printf("|%.5d|\n\n", 123);
@@ -409,6 +409,106 @@ int		main(void)
 	printf("|%-#10u|\n", 123);
 	ft_printf("|%+10u|\n", -123);
 	printf("|%+10u|\n\n", -123);
+
+
+*/
+	ft_putendl("		s\n");
+
+	ft_putendl("+PRECISION\n");
+
+	ft_printf("|%.5s|\n","bonjour");
+	printf("|%.5s|\n\n","bonjour");
+	ft_printf("|%.5s|\n", "bonjour");
+	printf("|%.5s|\n\n", "bonjour");
+
+	ft_printf("|%#.5s|\n","bonjour");
+	printf("|%#.5s|\n\n","bonjour");
+	ft_printf("|%#.5s|\n", "bonjour");
+	printf("|%#.5s|\n\n", "bonjour");
+
+	ft_printf("|%0.5s|\n","bonjour");
+	printf("|%0.5s|\n\n","bonjour");
+	ft_printf("|%0.5s|\n", "bonjour");
+	printf("|%0.5s|\n\n", "bonjour");
+
+	ft_printf("|%-.5s|\n","bonjour");
+	printf("|%-.5s|\n\n","bonjour");
+	ft_printf("|%-.5s|\n", "bonjour");
+	printf("|%-.5s|\n\n", "bonjour");
+
+	ft_printf("|% .5s|\n","bonjour");
+	printf("|% .5s|\n\n","bonjour");
+	ft_printf("|% .5s|\n", "bonjour");
+	printf("|% .5s|\n\n", "bonjour");
+
+	ft_printf("|%+.5s|\n","bonjour");
+	printf("|%+.5s|\n\n","bonjour");
+	ft_printf("|%+.5s|\n", "bonjour");
+	printf("|%+.5s|\n\n", "bonjour");
+
+	ft_putendl("\n\n+MFW\n");
+
+	ft_printf("|%10.5s|\n","bonjour");
+	printf("|%10.5s|\n","bonjour");
+	ft_printf("|%10.5s|\n", "bonjour");
+	printf("|%10.5s|\n\n", "bonjour");
+
+	ft_printf("|%#10.5s|\n","bonjour");
+	printf("|%#10.5s|\n","bonjour");
+	ft_printf("|%#10.5s|\n", "bonjour");
+	printf("|%#10.5s|\n\n", "bonjour");
+
+	ft_printf("|%010.5s|\n","bonjour");
+	printf("|%010.5s|\n","bonjour");
+	ft_printf("|%010.5s|\n", "bonjour");
+	printf("|%010.5s|\n\n", "bonjour");
+
+	ft_printf("|%-10.5s|\n","bonjour");
+	printf("|%-10.5s|\n","bonjour");
+	ft_printf("|%-10.5s|\n", "bonjour");
+	printf("|%-10.5s|\n\n", "bonjour");
+
+	ft_printf("|% 10.5s|\n","bonjour");
+	printf("|% 10.5s|\n","bonjour");
+	ft_printf("|% 10.5s|\n", "bonjour");
+	printf("|% 10.5s|\n\n", "bonjour");
+
+	ft_printf("|%+10.5s|\n","bonjour");
+	printf("|%+10.5s|\n","bonjour");
+	ft_printf("|%+10.5s|\n", "bonjour");
+	printf("|%+10.5s|\n\n", "bonjour");
+
+	ft_putendl("-PRECISIsN\n");
+
+	ft_printf("|%10s|\n","bonjour");
+	printf("|%10s|\n","bonjour");
+	ft_printf("|%10s|\n", "bonjour");
+	printf("|%10s|\n\n", "bonjour");
+
+	ft_printf("|%#10s|\n","bonjour");
+	printf("|%#10s|\n","bonjour");
+	ft_printf("|%#10s|\n", "bonjour");
+	printf("|%#10s|\n\n", "bonjour");
+
+	ft_printf("|%0#10s|\n","bonjour");
+	printf("|%0#10s|\n","bonjour");
+	ft_printf("|%0#10s|\n", "bonjour");
+	printf("|%0#10s|\n\n", "bonjour");
+
+	ft_printf("|%-10s|\n","bonjour");
+	printf("|%-10s|\n","bonjour");
+	ft_printf("|%-10s|\n", "bonjour");
+	printf("|%-10s|\n\n", "bonjour");
+
+	ft_printf("|% 10s|\n","bonjour");
+	printf("|% 10s|\n","bonjour");
+	ft_printf("|% 10s|\n", "bonjour");
+	printf("|% 10s|\n\n", "bonjour");
+
+	ft_printf("|%-#10s|\n","bonjour");
+	printf("|%-#10s|\n","bonjour");
+	ft_printf("|%+10s|\n", "bonjour");
+	printf("|%+10s|\n\n", "bonjour");
 
 	//printf("lapin,% .5d,", 123);
 	//printf("lapin,%+.5d,", 123);

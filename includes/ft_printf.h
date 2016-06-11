@@ -6,7 +6,7 @@
 /*   By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/31 18:06:49 by nmougino          #+#    #+#             */
-/*   Updated: 2016/06/10 19:24:18 by nmougino         ###   ########.fr       */
+/*   Updated: 2016/06/11 15:57:30 by nmougino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,6 @@ typedef struct		s_print
 int					ft_printf(const char *format, ...);
 
 void				applyplusspace(t_print *print, t_spec *spec, int s);
-void				applyzero(t_print *print, t_spec *spec, int len);
 void				applysharp(t_print *print, t_spec *spec);
 void				applymfw(t_print *print, t_spec *spec, int mfw);
 void				applynumprec(t_print *print, t_spec *spec, int len);

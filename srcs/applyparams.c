@@ -14,16 +14,6 @@ void	applysharp(t_print *print, t_spec *spec)
 	}
 }
 
-void	applyzero(t_print *print, t_spec *spec, int len)
-{
-	int	mfw;
-
-	mfw = spec->mfw - len;
-	if (spec->prec == -1 && mfw > 0)
-		while (mfw--)
-			addto('0', print);
-}
-
 void	applyplusspace(t_print *print, t_spec *spec, int s)
 {
 	if (!s)

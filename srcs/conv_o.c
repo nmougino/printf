@@ -6,7 +6,7 @@
 /*   By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/12 19:08:12 by nmougino          #+#    #+#             */
-/*   Updated: 2016/06/12 19:32:40 by nmougino         ###   ########.fr       */
+/*   Updated: 2016/06/12 19:51:04 by nmougino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ void	conv_o(t_spec *spec, t_print *print)
 	p = urecupparam(spec->hljz, print->ap);
 	i = (spec->flags & E_SHARP && !(spec->flags & E_ZERO));
 	(spec->flags & E_ZERO) ? applysharp(print, spec) : 0;
+	j = ((spec->prec == -1) ? i : 0);
 	(!(spec->flags & E_DASH)) ? applymfw(print, spec, spec->mfw -
 		(j + ft_max(spec->prec, ft_nbrlenbase(p, 8)))) : 0;
 	(!(spec->flags & E_ZERO)) ? applysharp(print, spec) : 0;

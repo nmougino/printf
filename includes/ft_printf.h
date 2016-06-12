@@ -6,7 +6,7 @@
 /*   By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/31 18:06:49 by nmougino          #+#    #+#             */
-/*   Updated: 2016/06/11 15:57:30 by nmougino         ###   ########.fr       */
+/*   Updated: 2016/06/11 20:17:45 by nmougino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,10 @@
 
 # define BUF_SIZE	300
 
-//# ifdef WINDIR
+# ifdef WINDIR
 	typedef long	intmax_t;
 	typedef unsigned long	uintmax_t;
-//# endif
+# endif
 
 enum				e_hljz
 {

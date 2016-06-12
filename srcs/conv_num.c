@@ -96,23 +96,22 @@ void	conv_u(t_spec *spec, t_print *print)
 
 void	conv_D(t_spec *spec, t_print *print)
 {
-	spec = NULL;
-	print = NULL;
-	ft_putendl("FONCTION DE CONVERSION NON TERMINEE");
+	spec->hljz = ((spec->flags == E_L) ? E_LL : E_L);
+	spec->conv = 'd';
+	conv_d(spec, print);
 }
-
 
 void	conv_O(t_spec *spec, t_print *print)
 {
-	spec = NULL;
-	print = NULL;
-	ft_putendl("FONCTION DE CONVERSION NON TERMINEE");
+	spec->hljz = ((spec->flags == E_L) ? E_LL : E_L);
+	spec->conv = 'o';
+	conv_o(spec, print);
 }
 
 
 void	conv_U(t_spec *spec, t_print *print)
 {
-	spec = NULL;
-	print = NULL;
-	ft_putendl("FONCTION DE CONVERSION NON TERMINEE");
+	spec->hljz = ((spec->flags == E_L) ? E_LL : E_L);
+	spec->conv = 'u';
+	conv_u(spec, print);
 }

@@ -6,7 +6,7 @@
 /*   By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/31 18:09:25 by nmougino          #+#    #+#             */
-/*   Updated: 2016/06/12 15:34:05 by nmougino         ###   ########.fr       */
+/*   Updated: 2016/06/12 17:47:01 by nmougino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,23 +33,7 @@ static void	initprint(t_print *print, t_spec *spec)
 	print->spec = spec;
 }
 
-static int	setspec(t_spec *spec, const char *str)
-{
-	int		i;
-	int		tmp;
-
-	tmp = 0;
-	i = 0;
-	i += setflag(spec, str);
-	i += setmfwi(spec, str + i);
-	i += setprec(spec, str + i);
-	i += setmodi(spec, str + i);
-	if ((tmp = setconv(spec, str + i) == -1))
-		return (-1);
-	i += tmp;
-	return (i);
-}
-
+/*
 int			ft_printf(const char *format, ...)
 {
 	int				i;
@@ -77,6 +61,31 @@ int			ft_printf(const char *format, ...)
 		else
 			addto(format[i], &print);
 		++i;
+	}
+	write(1, print.buf, print.pos);
+	va_end(print.ap);
+	return (print.ans);
+}
+*/
+int			ft_printf(const char *format, ...)
+{
+	int				i;
+	int				tmp;
+	t_print			print;
+	t_spec			spec;
+
+	i = 0;
+	va_start(print.ap, format);
+	initprint(&print, &spec);
+	while (format[i])
+	{
+		if (format[i] != '%')
+			addto(format[i], &print);
+		else if ((tmp = conv(&spec, &print, format + i + 1)) == -1)
+			return (-1);
+		else
+			i += tmp;
+		i++;
 	}
 	write(1, print.buf, print.pos);
 	va_end(print.ap);

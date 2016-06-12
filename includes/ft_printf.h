@@ -6,7 +6,7 @@
 /*   By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/31 18:06:49 by nmougino          #+#    #+#             */
-/*   Updated: 2016/06/11 20:17:45 by nmougino         ###   ########.fr       */
+/*   Updated: 2016/06/12 17:23:09 by nmougino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,7 +105,7 @@ void				conv_X(t_spec *spec, t_print *print);
 void				conv_c(t_spec *spec, t_print *print);
 void				conv_C(t_spec *spec, t_print *print);
 
-void				conv(t_spec *spec, t_print *print);
+int					conv(t_spec *spec, t_print *print, const char *format);
 
 void				sitoa(intmax_t p, t_print *print, int l);
 void				uitoabase(uintmax_t p, char *base, t_print *print, int l);

@@ -6,7 +6,7 @@
 /*   By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/31 18:04:34 by nmougino          #+#    #+#             */
-/*   Updated: 2016/06/12 16:54:32 by nmougino         ###   ########.fr       */
+/*   Updated: 2016/06/12 17:17:23 by nmougino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int		main(void)
 	//ft_putnbrendl(ft_printf(",bonjour % d,\n", 123));
 	//ft_putnbrendl(ft_printf(",bonjour %#d,\n", 123));
 
-/*
+
 	ft_putendl("+PRECISION\n");
 
 	ft_printf("|%.5d|\n", 123);
@@ -215,7 +215,7 @@ int		main(void)
 	printf("|%-#10X|\n", 123);
 	ft_printf("|%+10X|\n", -123);
 	printf("|%+10X|\n\n", -123);
-
+/*
 	ft_putendl("		octal\n");
 
 	ft_putendl("+PRECISION\n");
@@ -933,7 +933,7 @@ int		main(void)
 	ft_printf("|%+10U|\n", -123);
 	printf("|%+10U|\n\n", -123);
 
-*/
+
 
 	ft_putendl("		C\n");
 
@@ -1137,6 +1137,6 @@ int		main(void)
 	printf("|%-#10S|\n", L"héllo");
 	ft_printf("|%+10S|\n", L"héllo");
 	printf("|%+10S|\n\n", L"héllo");
-
+*/
 	return (0);
 }

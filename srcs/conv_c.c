@@ -1,26 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   addto.c                                            :+:      :+:    :+:   */
+/*   conv_c.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/06/12 19:05:45 by nmougino          #+#    #+#             */
-/*   Updated: 2016/06/12 19:05:48 by nmougino         ###   ########.fr       */
+/*   Created: 2016/06/12 19:06:04 by nmougino          #+#    #+#             */
+/*   Updated: 2016/06/12 19:19:01 by nmougino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	addto(char c, t_print *print)
+void	conv_c(t_spec *spec, t_print *print)
 {
-	if (++(print->pos) >= BUF_SIZE)
+	intmax_t	p;
+
+	if (spec->hljz == E_L || spec->hljz == E_LL)
 	{
-		write(1, print->buf, BUF_SIZE);
-		(print->pos) = 0;
+		spec->conv = 'C';
+		conv_lc(spec, print);
 	}
-	print->buf[print->pos] = c;
-	++(print->pos);
-	++(print->ans);
-	--(print->spec->mfw);
+	else
+	{
+		p = recupparam(spec->hljz, print->ap);
+		(!(spec->flags & E_DASH)) ? applymfw(print, spec, spec->mfw - 1) : 0;
+		addto(p, print);
+		(spec->flags & E_DASH) ? applymfw(print, spec, spec->mfw) : 0;
+	}
 }

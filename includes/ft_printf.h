@@ -91,19 +91,19 @@ int					setmodi(t_spec *spec, const char *str);
 int					setconv(t_spec *spec, const char *str);
 
 void				conv_s(t_spec *spec, t_print *print);
-void				conv_S(t_spec *spec, t_print *print);
+void				conv_ls(t_spec *spec, t_print *print);
 void				conv_p(t_spec *spec, t_print *print);
 void				conv_d(t_spec *spec, t_print *print);
-void				conv_D(t_spec *spec, t_print *print);
+void				conv_ld(t_spec *spec, t_print *print);
 void				conv_i(t_spec *spec, t_print *print);
 void				conv_o(t_spec *spec, t_print *print);
-void				conv_O(t_spec *spec, t_print *print);
+void				conv_lo(t_spec *spec, t_print *print);
 void				conv_u(t_spec *spec, t_print *print);
-void				conv_U(t_spec *spec, t_print *print);
+void				conv_lu(t_spec *spec, t_print *print);
 void				conv_x(t_spec *spec, t_print *print);
-void				conv_X(t_spec *spec, t_print *print);
+void				conv_bx(t_spec *spec, t_print *print);
 void				conv_c(t_spec *spec, t_print *print);
-void				conv_C(t_spec *spec, t_print *print);
+void				conv_lc(t_spec *spec, t_print *print);
 
 int					conv(t_spec *spec, t_print *print, const char *format);
 

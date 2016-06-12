@@ -1,0 +1,37 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   conv_o.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2016/06/12 19:08:12 by nmougino          #+#    #+#             */
+/*   Updated: 2016/06/12 19:32:40 by nmougino         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "ft_printf.h"
+
+void	conv_o(t_spec *spec, t_print *print)
+{
+	int			i;
+	uintmax_t	p;
+	int			j;
+
+	p = urecupparam(spec->hljz, print->ap);
+	i = (spec->flags & E_SHARP && !(spec->flags & E_ZERO));
+	(spec->flags & E_ZERO) ? applysharp(print, spec) : 0;
+	(!(spec->flags & E_DASH)) ? applymfw(print, spec, spec->mfw -
+		(j + ft_max(spec->prec, ft_nbrlenbase(p, 8)))) : 0;
+	(!(spec->flags & E_ZERO)) ? applysharp(print, spec) : 0;
+	applynumprec(print, spec, i + ft_nbrlenbase(p, 8));
+	uitoabase(p, "01234567", print, ft_nbrlenbase(p, 8));
+	(spec->flags & E_DASH) ? applymfw(print, spec, spec->mfw) : 0;
+}
+
+void	conv_lo(t_spec *spec, t_print *print)
+{
+	spec->hljz = ((spec->flags == E_L) ? E_LL : E_L);
+	spec->conv = 'o';
+	conv_o(spec, print);
+}

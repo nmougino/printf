@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   conv_uni.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2016/06/12 19:09:48 by nmougino          #+#    #+#             */
+/*   Updated: 2016/06/12 19:34:31 by nmougino         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ft_printf.h"
 
 static void	adduni(wchar_t p, int nbbi, t_print *print)
@@ -47,29 +59,32 @@ static int	nboc(int nbbi)
 	return (0);
 }
 
-void		conv_C(t_spec *spec, t_print *print)
+void		conv_lc(t_spec *spec, t_print *print)
 {
 	wchar_t	p;
-	int			nbbi;
+	int		nbbi;
 
 	p = (wchar_t)urecupparam(spec->hljz, print->ap);
 	nbbi = ft_nbrlenbase(p, 2);
-	(!(spec->flags & E_DASH)) ? applymfw(print, spec, spec->mfw - nboc(nbbi)) : 0;
+	(!(spec->flags & E_DASH)) ? applymfw(print, spec, spec->mfw -
+		nboc(nbbi)) : 0;
 	adduni(p, nbbi, print);
 	((spec->flags & E_DASH)) ? applymfw(print, spec, spec->mfw) : 0;
 }
 
-void		conv_S(t_spec *spec, t_print *print)
+void		conv_ls(t_spec *spec, t_print *print)
 {
 	wchar_t	*p;
 	int		i;
 	int		nbbi;
+	int		j;
 
 	i = 0;
 	p = (wchar_t*)urecupparam(E_LONG, print->ap);
 	nbbi = ft_nbrlenbase(p[i], 2);
+	j = (spec->prec <= -1) ? nboc(nbbi) : 0;
 	(!(spec->flags & E_DASH)) ? applymfw(print, spec, spec->mfw -
-		ft_wstrlen(p) - ((spec->prec <= -1) ? nboc(nbbi) : 0)) : 0;
+		ft_wstrlen(p) - j) : 0;
 	while (p[i] && (spec->prec > 0 || spec->prec <= -1))
 	{
 		nbbi = ft_nbrlenbase(p[i], 2);

@@ -6,7 +6,7 @@
 #    By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/04/05 16:20:26 by nmougino          #+#    #+#              #
-#    Updated: 2016/06/12 15:56:05 by nmougino         ###   ########.fr        #
+#    Updated: 2016/06/12 19:23:25 by nmougino         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,17 +31,27 @@ LIBDIR =	libs
 OBJDIR =	objs
 
 #	Liste des sources
-SRC =		main.c \
-			setconvparts.c \
-			conv.c \
-			conv_uni.c \
-			conv_num.c \
+SRC =		addto.c \
 			applyparams.c \
+			conv.c \
+			conv_c.c \
+			conv_di.c \
+			conv_hexa.c \
+			conv_o.c \
+			conv_p.c \
+			conv_s.c \
+			conv_u.c \
+			conv_uni.c \
+			ft_printf.c \
+			main.c \
 			recupparam.c \
+			setconvparts.c \
 			sitoa.c \
-			uitoabase.c \
-			addto.c \
-			ft_printf.c
+			uitoabase.c
+
+
+
+
 LIB =		ft
 OBJ =		$(SRC:.c=.o)
 

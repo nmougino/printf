@@ -6,7 +6,7 @@
 /*   By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/31 18:04:34 by nmougino          #+#    #+#             */
-/*   Updated: 2016/06/12 15:35:34 by nmougino         ###   ########.fr       */
+/*   Updated: 2016/06/12 16:54:32 by nmougino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -939,99 +939,204 @@ int		main(void)
 
 	ft_putendl("+PRECISICN\n");
 
-	ft_printf("|%.5C|\n", 'a');
-	printf("|%.5C|\n\n", 'a');
-	ft_printf("|%.5C|\n", 'a');
-	printf("|%.5C|\n\n", 'a');
+	ft_printf("|%.5C|\n", 233);
+	printf("|%.5C|\n\n", 233);
+	ft_printf("|%.5C|\n", 233);
+	printf("|%.5C|\n\n", 233);
 
-	ft_printf("|%#.5C|\n", 'a');
-	printf("|%#.5C|\n\n", 'a');
-	ft_printf("|%#.5C|\n", 'a');
-	printf("|%#.5C|\n\n", 'a');
+	ft_printf("|%#.5C|\n", 233);
+	printf("|%#.5C|\n\n", 233);
+	ft_printf("|%#.5C|\n", 233);
+	printf("|%#.5C|\n\n", 233);
 
-	ft_printf("|%0.5C|\n", 'a');
-	printf("|%0.5C|\n\n", 'a');
-	ft_printf("|%0.5C|\n", 'a');
-	printf("|%0.5C|\n\n", 'a');
+	ft_printf("|%0.5C|\n", 233);
+	printf("|%0.5C|\n\n", 233);
+	ft_printf("|%0.5C|\n", 233);
+	printf("|%0.5C|\n\n", 233);
 
-	ft_printf("|%-.5C|\n", 'a');
-	printf("|%-.5C|\n\n", 'a');
-	ft_printf("|%-.5C|\n", 'a');
-	printf("|%-.5C|\n\n", 'a');
+	ft_printf("|%-.5C|\n", 233);
+	printf("|%-.5C|\n\n", 233);
+	ft_printf("|%-.5C|\n", 233);
+	printf("|%-.5C|\n\n", 233);
 
-	ft_printf("|% .5C|\n", 'a');
-	printf("|% .5C|\n\n", 'a');
-	ft_printf("|% .5C|\n", 'a');
-	printf("|% .5C|\n\n", 'a');
+	ft_printf("|% .5C|\n", 233);
+	printf("|% .5C|\n\n", 233);
+	ft_printf("|% .5C|\n", 233);
+	printf("|% .5C|\n\n", 233);
 
-	ft_printf("|%+.5C|\n", 'a');
-	printf("|%+.5C|\n\n", 'a');
-	ft_printf("|%+.5C|\n", 'a');
-	printf("|%+.5C|\n\n", 'a');
+	ft_printf("|%+.5C|\n", 233);
+	printf("|%+.5C|\n\n", 233);
+	ft_printf("|%+.5C|\n", 233);
+	printf("|%+.5C|\n\n", 233);
 
 	ft_putendl("\n\n+MFW\n");
 
-	ft_printf("|%10.5C|\n", 'a');
-	printf("|%10.5C|\n", 'a');
-	ft_printf("|%10.5C|\n", 'a');
-	printf("|%10.5C|\n\n", 'a');
+	ft_printf("|%10.5C|\n", 233);
+	printf("|%10.5C|\n", 233);
+	ft_printf("|%10.5C|\n", 233);
+	printf("|%10.5C|\n\n", 233);
 
-	ft_printf("|%#10.5C|\n", 'a');
-	printf("|%#10.5C|\n", 'a');
-	ft_printf("|%#10.5C|\n", 'a');
-	printf("|%#10.5C|\n\n", 'a');
+	ft_printf("|%#10.5C|\n", 233);
+	printf("|%#10.5C|\n", 233);
+	ft_printf("|%#10.5C|\n", 233);
+	printf("|%#10.5C|\n\n", 233);
 
-	ft_printf("|%010.5C|\n", 'a');
-	printf("|%010.5C|\n", 'a');
-	ft_printf("|%010.5C|\n", 'a');
-	printf("|%010.5C|\n\n", 'a');
+	ft_printf("|%010.5C|\n", 233);
+	printf("|%010.5C|\n", 233);
+	ft_printf("|%010.5C|\n", 233);
+	printf("|%010.5C|\n\n", 233);
 
-	ft_printf("|%-10.5C|\n", 'a');
-	printf("|%-10.5C|\n", 'a');
-	ft_printf("|%-10.5C|\n", 'a');
-	printf("|%-10.5C|\n\n", 'a');
+	ft_printf("|%-10.5C|\n", 233);
+	printf("|%-10.5C|\n", 233);
+	ft_printf("|%-10.5C|\n", 233);
+	printf("|%-10.5C|\n\n", 233);
 
-	ft_printf("|% 10.5C|\n", 'a');
-	printf("|% 10.5C|\n", 'a');
-	ft_printf("|% 10.5C|\n", 'a');
-	printf("|% 10.5C|\n\n", 'a');
+	ft_printf("|% 10.5C|\n", 233);
+	printf("|% 10.5C|\n", 233);
+	ft_printf("|% 10.5C|\n", 233);
+	printf("|% 10.5C|\n\n", 233);
 
-	ft_printf("|%+10.5C|\n", 'a');
-	printf("|%+10.5C|\n", 'a');
-	ft_printf("|%+10.5C|\n", 'a');
-	printf("|%+10.5C|\n\n", 'a');
+	ft_printf("|%+10.5C|\n", 233);
+	printf("|%+10.5C|\n", 233);
+	ft_printf("|%+10.5C|\n", 233);
+	printf("|%+10.5C|\n\n", 233);
 
 	ft_putendl("-PRECISICN\n");
+	ft_printf("|%10C|\n", 233);
+	printf("|%10C|\n", 233);
+	ft_printf("|%10C|\n", 233);
+	printf("|%10C|\n\n", 233);
 
-	ft_printf("|%10C|\n", 'a');
-	printf("|%10C|\n", 'a');
-	ft_printf("|%10C|\n", 'a');
-	printf("|%10C|\n\n", 'a');
+	ft_printf("|%#10C|\n", 233);
+	printf("|%#10C|\n", 233);
+	ft_printf("|%#10C|\n", 233);
+	printf("|%#10C|\n\n", 233);
 
-	ft_printf("|%#10C|\n", 'a');
-	printf("|%#10C|\n", 'a');
-	ft_printf("|%#10C|\n", 'a');
-	printf("|%#10C|\n\n", 'a');
+	ft_printf("|%0#10C|\n", 233);
+	printf("|%0#10C|\n", 233);
+	ft_printf("|%0#10C|\n", 233);
+	printf("|%0#10C|\n\n", 233);
 
-	ft_printf("|%0#10C|\n", 'a');
-	printf("|%0#10C|\n", 'a');
-	ft_printf("|%0#10C|\n", 'a');
-	printf("|%0#10C|\n\n", 'a');
+	ft_printf("|%-10C|\n", 233);
+	printf("|%-10C|\n", 233);
+	ft_printf("|%-10C|\n", 233);
+	printf("|%-10C|\n\n", 233);
 
-	ft_printf("|%-10C|\n", 'a');
-	printf("|%-10C|\n", 'a');
-	ft_printf("|%-10C|\n", 'a');
-	printf("|%-10C|\n\n", 'a');
+	ft_printf("|% 10C|\n", 233);
+	printf("|% 10C|\n", 233);
+	ft_printf("|% 10C|\n", 233);
+	printf("|% 10C|\n\n", 233);
 
-	ft_printf("|% 10C|\n", 'a');
-	printf("|% 10C|\n", 'a');
-	ft_printf("|% 10C|\n", 'a');
-	printf("|% 10C|\n\n", 'a');
+	ft_printf("|%-#10C|\n", 233);
+	printf("|%-#10C|\n", 233);
+	ft_printf("|%+10C|\n", 233);
+	printf("|%+10C|\n\n", 233);
 
-	ft_printf("|%-#10C|\n", 'a');
-	printf("|%-#10C|\n", 'a');
-	ft_printf("|%+10C|\n", 'a');
-	printf("|%+10C|\n\n", 'a');
+	//ft_printf("|retour : %d|\n", ft_printf("{%ls}", L"\xF0\x9D\x84\x9E"));
+
+	printf("|retor : %D|\n\n", printf("{%S}", L"\xF0\x9D\x84\x9E"));
+
+	ft_printf("ICI:::::\n莨\n\n");
+	ft_printf("ICI:::::\n %C\n\n", L'莨');
+
+
+	ft_putendl("		S\n");
+
+	ft_putendl("+PRESISISN\n");
+
+	ft_printf("|%.5S|\n", L"héllo");
+	printf("|%.5S|\n\n", L"héllo");
+	ft_printf("|%.5S|\n", L"héllo");
+	printf("|%.5S|\n\n", L"héllo");
+
+	ft_printf("|%#.5S|\n", L"héllo");
+	printf("|%#.5S|\n\n", L"héllo");
+	ft_printf("|%#.5S|\n", L"héllo");
+	printf("|%#.5S|\n\n", L"héllo");
+
+	ft_printf("|%0.5S|\n", L"héllo");
+	printf("|%0.5S|\n\n", L"héllo");
+	ft_printf("|%0.5S|\n", L"héllo");
+	printf("|%0.5S|\n\n", L"héllo");
+
+	ft_printf("|%-.5S|\n", L"héllo");
+	printf("|%-.5S|\n\n", L"héllo");
+	ft_printf("|%-.5S|\n", L"héllo");
+	printf("|%-.5S|\n\n", L"héllo");
+
+	ft_printf("|% .5S|\n", L"héllo");
+	printf("|% .5S|\n\n", L"héllo");
+	ft_printf("|% .5S|\n", L"héllo");
+	printf("|% .5S|\n\n", L"héllo");
+
+	ft_printf("|%+.5S|\n", L"héllo");
+	printf("|%+.5S|\n\n", L"héllo");
+	ft_printf("|%+.5S|\n", L"héllo");
+	printf("|%+.5S|\n\n", L"héllo");
+
+	ft_putendl("\n\n+MFW\n");
+
+	ft_printf("|%10.5S|\n", L"héllo");
+	printf("|%10.5S|\n", L"héllo");
+	ft_printf("|%10.5S|\n", L"héllo");
+	printf("|%10.5S|\n\n", L"héllo");
+
+	ft_printf("|%#10.5S|\n", L"héllo");
+	printf("|%#10.5S|\n", L"héllo");
+	ft_printf("|%#10.5S|\n", L"héllo");
+	printf("|%#10.5S|\n\n", L"héllo");
+
+	ft_printf("|%010.5S|\n", L"héllo");
+	printf("|%010.5S|\n", L"héllo");
+	ft_printf("|%010.5S|\n", L"héllo");
+	printf("|%010.5S|\n\n", L"héllo");
+
+	ft_printf("|%-10.5S|\n", L"héllo");
+	printf("|%-10.5S|\n", L"héllo");
+	ft_printf("|%-10.5S|\n", L"héllo");
+	printf("|%-10.5S|\n\n", L"héllo");
+
+	ft_printf("|% 10.5S|\n", L"héllo");
+	printf("|% 10.5S|\n", L"héllo");
+	ft_printf("|% 10.5S|\n", L"héllo");
+	printf("|% 10.5S|\n\n", L"héllo");
+
+	ft_printf("|%+10.5S|\n", L"héllo");
+	printf("|%+10.5S|\n", L"héllo");
+	ft_printf("|%+10.5S|\n", L"héllo");
+	printf("|%+10.5S|\n\n", "héllo");
+
+	ft_putendl("-PRESISISN\n");
+
+	ft_printf("|%10S|\n", L"héllo");
+	printf("|%10S|\n", L"héllo");
+	ft_printf("|%10S|\n", L"héllo");
+	printf("|%10S|\n\n", L"héllo");
+
+	ft_printf("|%#10S|\n", L"héllo");
+	printf("|%#10S|\n", L"héllo");
+	ft_printf("|%#10S|\n", L"héllo");
+	printf("|%#10S|\n\n", L"héllo");
+
+	ft_printf("|%0#10S|\n", L"héllo");
+	printf("|%0#10S|\n", L"héllo");
+	ft_printf("|%0#10S|\n", L"héllo");
+	printf("|%0#10S|\n\n", L"héllo");
+
+	ft_printf("|%-10S|\n", L"héllo");
+	printf("|%-10S|\n", L"héllo");
+	ft_printf("|%-10S|\n", L"héllo");
+	printf("|%-10S|\n\n", L"héllo");
+
+	ft_printf("|% 10S|\n", L"héllo");
+	printf("|% 10S|\n", L"héllo");
+	ft_printf("|% 10S|\n", L"héllo");
+	printf("|% 10S|\n\n", L"héllo");
+
+	ft_printf("|%-#10S|\n", L"héllo");
+	printf("|%-#10S|\n", L"héllo");
+	ft_printf("|%+10S|\n", L"héllo");
+	printf("|%+10S|\n\n", L"héllo");
 
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/02 19:00:03 by nmougino          #+#    #+#             */
-/*   Updated: 2016/06/12 15:40:58 by nmougino         ###   ########.fr       */
+/*   Updated: 2016/06/12 15:43:16 by nmougino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,11 @@ void	conv_s(t_spec *spec, t_print *print)
 	int		neg;
 	char	*s;
 
+	if (spec->hljz == E_L || spec->hljz == E_LL)
+	{
+		spec->conv = 'S';
+		conv_S(spec, print);
+	}
 	i = 0;
 	s = (char *)urecupparam(E_LONG, print->ap);
 	neg = (spec->prec > -1 ? ft_min(spec->prec, ft_strlen(s)) : ft_strlen(s));
@@ -33,13 +38,6 @@ void	conv_s(t_spec *spec, t_print *print)
 	while (s[i] && (spec->prec--))
 		addto(s[i++], print);
 	(spec->flags & E_DASH) ? applymfw(print, spec, spec->mfw) : 0;
-}
-
-void	conv_S(t_spec *spec, t_print *print)
-{
-	spec = NULL;
-	print = NULL;
-	ft_putendl("FONCTION DE CONVERSION NON TERMINEE");
 }
 
 void	conv_p(t_spec *spec, t_print *print)

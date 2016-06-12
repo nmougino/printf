@@ -1,6 +1,6 @@
 #include "ft_printf.h"
 
-static void	adduni(uintmax_t p, int nbbi, t_print *print)
+static void	adduni(wchar_t p, int nbbi, t_print *print)
 {
 	if (nbbi >= 1 && nbbi <= 7)
 		addto(p, print);
@@ -24,14 +24,43 @@ static void	adduni(uintmax_t p, int nbbi, t_print *print)
 	}
 }
 
-void	conv_C(t_spec *spec, t_print *print)
+static int	ft_wstrlen(wchar_t *p)
 {
-	uintmax_t	p;
+	int		i;
+
+	i = 0;
+	while (p[i])
+		++i;
+	return (i);
+}
+
+void		conv_C(t_spec *spec, t_print *print)
+{
+	wchar_t	p;
 	int			nbbi;
 
-	p = urecupparam(spec->hljz, print->ap);
+	p = (wchar_t)urecupparam(spec->hljz, print->ap);
 	nbbi = ft_nbrlenbase(p, 2);
 	(!(spec->flags & E_DASH)) ? applymfw(print, spec, spec->mfw - 1) : 0;
 	adduni(p, nbbi, print);
+	((spec->flags & E_DASH)) ? applymfw(print, spec, spec->mfw) : 0;
+}
+
+void		conv_S(t_spec *spec, t_print *print)
+{
+	wchar_t	*p;
+	int		i;
+	int		nbbi;
+
+	i = 0;
+	p = (wchar_t*)urecupparam(E_L, print->ap);
+	(!(spec->flags & E_DASH)) ? applymfw(print, spec, spec->mfw -
+		ft_wstrlen(p)) : 0;
+	while (p[i])
+	{
+		nbbi = ft_nbrlenbase(p[i], 2);
+		adduni(p[i], nbbi, print);
+		i++;
+	}
 	((spec->flags & E_DASH)) ? applymfw(print, spec, spec->mfw) : 0;
 }

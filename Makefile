@@ -6,23 +6,22 @@
 #    By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/04/05 16:20:26 by nmougino          #+#    #+#              #
-#    Updated: 2016/06/12 19:23:25 by nmougino         ###   ########.fr        #
+#    Updated: 2016/06/12 20:04:22 by nmougino         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 #	Compilator - clang est plus sur que gcc
 CC =		clang
-#CFLAGS =	-Wall -Wextra -Werror
-CFLAGS =	-Wall -Wextra
+CFLAGS =	-Wall -Wextra -Werror
 ADDFLAGS =
 
 #	Binary
 NAME =		ft_printf
-LIBNAME =
+LIBNAME =	libftprintf.a
 DST =
 
 #	Default rule
-DEFRULE =	all
+DEFRULE =	alllib
 
 #	Dossiers utiles
 SRCDIR =	srcs
@@ -43,14 +42,10 @@ SRC =		addto.c \
 			conv_u.c \
 			conv_uni.c \
 			ft_printf.c \
-			main.c \
 			recupparam.c \
 			setconvparts.c \
 			sitoa.c \
 			uitoabase.c
-
-
-
 
 LIB =		ft
 OBJ =		$(SRC:.c=.o)

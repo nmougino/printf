@@ -6,7 +6,7 @@
 /*   By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/31 18:06:49 by nmougino          #+#    #+#             */
-/*   Updated: 2016/06/12 17:23:09 by nmougino         ###   ########.fr       */
+/*   Updated: 2016/06/12 18:31:35 by nmougino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 # include <unistd.h>
 # include <stdarg.h>
 
-# define BUF_SIZE	300
+# define BUF_SIZE	1
 
 # ifdef WINDIR
 	typedef long	intmax_t;
@@ -67,7 +67,7 @@ typedef struct		s_spec
 
 typedef struct		s_print
 {
-	char			buf[BUF_SIZE];
+	char	buf[BUF_SIZE];
 	unsigned int	pos;
 	va_list			ap;
 	void			*convftab[14];

@@ -6,8 +6,8 @@ static void	adduni(wchar_t p, int nbbi, t_print *print)
 		addto(p, print);
 	else if (nbbi >= 8 && nbbi <= 11)
 	{
-		addto((3 << 6) | (p >> 6), print);
-		addto((1 << 7) | (63 & p), print);
+		addto(((3 << 6) | (p >> 6)), print);
+		addto(((1 << 7) | (63 & p)), print);
 	}
 	else if (nbbi >= 12 && nbbi <= 16)
 	{
@@ -34,6 +34,19 @@ static int	ft_wstrlen(wchar_t *p)
 	return (i);
 }
 
+static int	nboc(int nbbi)
+{
+	if (nbbi >= 1 && nbbi <= 7)
+		return (1);
+	else if (nbbi >= 8 && nbbi <= 11)
+		return (2);
+	else if (nbbi >= 12 && nbbi <= 16)
+		return (3);
+	else if (nbbi >= 17 && nbbi <= 21)
+		return (4);
+	return (0);
+}
+
 void		conv_C(t_spec *spec, t_print *print)
 {
 	wchar_t	p;
@@ -41,7 +54,7 @@ void		conv_C(t_spec *spec, t_print *print)
 
 	p = (wchar_t)urecupparam(spec->hljz, print->ap);
 	nbbi = ft_nbrlenbase(p, 2);
-	(!(spec->flags & E_DASH)) ? applymfw(print, spec, spec->mfw - 1) : 0;
+	(!(spec->flags & E_DASH)) ? applymfw(print, spec, spec->mfw - nboc(nbbi)) : 0;
 	adduni(p, nbbi, print);
 	((spec->flags & E_DASH)) ? applymfw(print, spec, spec->mfw) : 0;
 }
@@ -53,12 +66,14 @@ void		conv_S(t_spec *spec, t_print *print)
 	int		nbbi;
 
 	i = 0;
-	p = (wchar_t*)urecupparam(E_L, print->ap);
+	p = (wchar_t*)urecupparam(E_LONG, print->ap);
+	nbbi = ft_nbrlenbase(p[i], 2);
 	(!(spec->flags & E_DASH)) ? applymfw(print, spec, spec->mfw -
-		ft_wstrlen(p)) : 0;
-	while (p[i])
+		ft_wstrlen(p) - ((spec->prec <= -1) ? nboc(nbbi) : 0)) : 0;
+	while (p[i] && (spec->prec > 0 || spec->prec <= -1))
 	{
 		nbbi = ft_nbrlenbase(p[i], 2);
+		spec->prec -= nboc(nbbi);
 		adduni(p[i], nbbi, print);
 		i++;
 	}

@@ -6,22 +6,24 @@
 /*   By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/31 18:04:34 by nmougino          #+#    #+#             */
-/*   Updated: 2016/06/12 17:17:23 by nmougino         ###   ########.fr       */
+/*   Updated: 2016/06/12 18:59:05 by nmougino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include <stdio.h>
+#include <locale.h>
 
 int		main(void)
 {
+	setlocale(LC_CTYPE, "");
 	//ft_putnbrendl(ft_printf(",bonjour %d,\n", 123));
 	//ft_putnbrendl(ft_printf(",bonjour %d,\n", -123));
 	//ft_putnbrendl(ft_printf(",bonjour %+d,\n", 123));
 	//ft_putnbrendl(ft_printf(",bonjour % d,\n", 123));
 	//ft_putnbrendl(ft_printf(",bonjour %#d,\n", 123));
 
-
+/*
 	ft_putendl("+PRECISION\n");
 
 	ft_printf("|%.5d|\n", 123);
@@ -215,7 +217,7 @@ int		main(void)
 	printf("|%-#10X|\n", 123);
 	ft_printf("|%+10X|\n", -123);
 	printf("|%+10X|\n\n", -123);
-/*
+
 	ft_putendl("		octal\n");
 
 	ft_putendl("+PRECISION\n");
@@ -933,7 +935,7 @@ int		main(void)
 	ft_printf("|%+10U|\n", -123);
 	printf("|%+10U|\n\n", -123);
 
-
+*/
 
 	ft_putendl("		C\n");
 
@@ -1039,7 +1041,7 @@ int		main(void)
 	ft_printf("ICI:::::\n莨\n\n");
 	ft_printf("ICI:::::\n %C\n\n", L'莨');
 
-
+/*
 	ft_putendl("		S\n");
 
 	ft_putendl("+PRESISISN\n");
@@ -1103,8 +1105,8 @@ int		main(void)
 
 	ft_printf("|%+10.5S|\n", L"héllo");
 	printf("|%+10.5S|\n", L"héllo");
-	ft_printf("|%+10.5S|\n", L"héllo");
-	printf("|%+10.5S|\n\n", "héllo");
+	ft_printf("|my : %+10.2S|\n", L"héllo");
+	printf("|vrai : %+10.2S|\n\n", L"héllo");
 
 	ft_putendl("-PRESISISN\n");
 
@@ -1133,10 +1135,12 @@ int		main(void)
 	ft_printf("|% 10S|\n", L"héllo");
 	printf("|% 10S|\n\n", L"héllo");
 
-	ft_printf("|%-#10S|\n", L"héllo");
-	printf("|%-#10S|\n", L"héllo");
-	ft_printf("|%+10S|\n", L"héllo");
-	printf("|%+10S|\n\n", L"héllo");
+	ft_printf("|%-#10S|\n", L"hiiéllo");
+	printf("|%-#10S|\n", L"hiiéllo");
+	ft_printf("|%+10S|\n", L"hiiéllo");
+	printf("|%+10S|\n\n", L"hiiéllo");
 */
+	printf("|%x|\n\n", L'é');
+
 	return (0);
 }

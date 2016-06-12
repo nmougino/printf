@@ -6,7 +6,7 @@
 /*   By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/02 19:00:03 by nmougino          #+#    #+#             */
-/*   Updated: 2016/06/11 20:12:22 by nmougino         ###   ########.fr       */
+/*   Updated: 2016/06/12 15:40:58 by nmougino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@ void	conv(t_spec *spec, t_print *print)
 	convf(spec, print);
 }
 
-//segfault si le param est un int....
 void	conv_s(t_spec *spec, t_print *print)
 {
 	int		i;
@@ -57,15 +56,16 @@ void	conv_c(t_spec *spec, t_print *print)
 {
 	intmax_t	p;
 
- 	p = recupparam(spec->hljz, print->ap);
-	(!(spec->flags & E_DASH)) ? applymfw(print, spec, spec->mfw - 1) : 0;
-	addto(p, print);
-	(spec->flags & E_DASH) ? applymfw(print, spec, spec->mfw) : 0;
-}
-
-void	conv_C(t_spec *spec, t_print *print)
-{
-	spec = NULL;
-	print = NULL;
-	ft_putendl("FONCTION DE CONVERSION NON TERMINEE");
+	if (spec->hljz == E_L || spec->hljz == E_LL)
+	{
+		spec->conv = 'C';
+		conv_C(spec, print);
+	}
+	else
+	{
+	 	p = recupparam(spec->hljz, print->ap);
+		(!(spec->flags & E_DASH)) ? applymfw(print, spec, spec->mfw - 1) : 0;
+		addto(p, print);
+		(spec->flags & E_DASH) ? applymfw(print, spec, spec->mfw) : 0;
+	}
 }

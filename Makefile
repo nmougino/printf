@@ -6,7 +6,7 @@
 #    By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/04/05 16:20:26 by nmougino          #+#    #+#              #
-#    Updated: 2016/06/10 18:27:07 by nmougino         ###   ########.fr        #
+#    Updated: 2016/06/12 15:22:45 by nmougino         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,6 +34,7 @@ OBJDIR =	objs
 SRC =		main.c \
 			setconvparts.c \
 			conv.c \
+			conv_C.c \
 			conv_num.c \
 			applyparams.c \
 			recupparam.c \

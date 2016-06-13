@@ -6,7 +6,7 @@
 /*   By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/31 18:09:25 by nmougino          #+#    #+#             */
-/*   Updated: 2016/06/12 19:03:04 by nmougino         ###   ########.fr       */
+/*   Updated: 2016/06/13 18:25:03 by nmougino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,27 @@ static void	initprint(t_print *print, t_spec *spec)
 	print->convftab[11] = &conv_bx;
 	print->convftab[12] = &conv_c;
 	print->convftab[13] = &conv_lc;
+	print->convftab[14] = &conv_b;
 	print->pos = 0;
 	print->ans = 0;
 	print->spec = spec;
+}
+
+static int	printerror(t_print *print)
+{
+	int		i;
+	int		pos;
+	char	*buf;
+
+	pos = print->pos;
+	buf = print->buf;
+	i = 0;
+	write(1, print->buf, print->pos);
+	while (i < pos)
+		buf[i++] = 0;
+	(print->pos) = 0;
+	va_end(print->ap);
+	return (-1);
 }
 
 int			ft_printf(const char *format, ...)
@@ -48,7 +66,7 @@ int			ft_printf(const char *format, ...)
 		if (format[i] != '%')
 			addto(format[i], &print);
 		else if ((tmp = conv(&spec, &print, format + i + 1)) == -1)
-			return (-1);
+			return (printerror(&print));
 		else
 			i += tmp;
 		i++;

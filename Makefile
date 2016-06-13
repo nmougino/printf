@@ -6,7 +6,7 @@
 #    By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/04/05 16:20:26 by nmougino          #+#    #+#              #
-#    Updated: 2016/06/12 20:04:22 by nmougino         ###   ########.fr        #
+#    Updated: 2016/06/12 21:19:05 by nmougino         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,6 +33,7 @@ OBJDIR =	objs
 SRC =		addto.c \
 			applyparams.c \
 			conv.c \
+			conv_b.c \
 			conv_c.c \
 			conv_di.c \
 			conv_hexa.c \

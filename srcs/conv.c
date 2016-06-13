@@ -6,7 +6,7 @@
 /*   By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/02 19:00:03 by nmougino          #+#    #+#             */
-/*   Updated: 2016/06/12 19:18:12 by nmougino         ###   ########.fr       */
+/*   Updated: 2016/06/12 22:15:02 by nmougino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ int			conv(t_spec *spec, t_print *print, const char *format)
 	}
 	if ((tmp = setspec(spec, format)) == -1)
 		return (-1);
-	convf = print->convftab[ft_strnloc(spec->conv, "sSpdDioOuUxXcC", 14)];
+	convf = print->convftab[ft_strnloc(spec->conv, "sSpdDioOuUxXcCb", 15)];
 	convf(spec, print);
 	return (tmp);
 }

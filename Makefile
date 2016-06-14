@@ -6,7 +6,7 @@
 #    By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/04/05 16:20:26 by nmougino          #+#    #+#              #
-#    Updated: 2016/05/31 18:04:15 by nmougino         ###   ########.fr        #
+#    Updated: 2016/06/14 16:21:44 by nmougino         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,11 +17,11 @@ ADDFLAGS =
 
 #	Binary
 NAME =		ft_printf
-LIBNAME =
+LIBNAME =	libftprintf.a
 DST =
 
 #	Default rule
-DEFRULE =	all
+DEFRULE =	alllib
 
 #	Dossiers utiles
 SRCDIR =	srcs
@@ -30,8 +30,24 @@ LIBDIR =	libs
 OBJDIR =	objs
 
 #	Liste des sources
-SRC =		main.c \
-			ft_printf.c
+SRC =		addto.c \
+			applyparams.c \
+			conv.c \
+			conv_b.c \
+			conv_c.c \
+			conv_di.c \
+			conv_hexa.c \
+			conv_o.c \
+			conv_p.c \
+			conv_s.c \
+			conv_u.c \
+			conv_uni.c \
+			ft_printf.c \
+			recupparam.c \
+			setconvparts.c \
+			sitoa.c \
+			uitoabase.c
+
 LIB =		ft
 OBJ =		$(SRC:.c=.o)
 
@@ -80,7 +96,7 @@ glulib: relib
 
 all: $(NAME)
 
-alllib: lib
+alllib: deplib lib
 
 re: fclean all
 
@@ -106,7 +122,7 @@ lib: $(OBJDIR) $(OBJP)
 deplib:
 	@mkdir -p libs
 	$(addprefix make -C ,$(addsuffix /$(\n), $(LIBP)))
-	
+
 #	MrProper's legacy
 clean:
 	@echo "\n$(RED)@ Objects deletion$(DEF)"

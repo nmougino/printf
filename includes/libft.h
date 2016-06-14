@@ -6,7 +6,7 @@
 /*   By: nmougino <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/24 16:46:12 by nmougino          #+#    #+#             */
-/*   Updated: 2016/05/27 11:28:07 by nmougino         ###   ########.fr       */
+/*   Updated: 2016/06/13 15:52:31 by nmougino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,9 @@ void				ft_memdel(void **ap);
 void				*ft_memmove(void *dst, const void *src, size_t len);
 void				*ft_memset(void *b, int c, size_t len);
 int					ft_min(int a, int b);
-int					ft_nbrlen(int nb);
+int					ft_nbrlen(long nb);
+int					ft_nbrlenbase(unsigned long nb, int base);
+int					ft_bitlen(long p);
 int					ft_pow(int nb, int pow);
 void				ft_putchar(char c);
 void				ft_putchar_fd(char c, int fd);
@@ -91,6 +93,7 @@ char				*ft_strncpy(char *dst, const char *src, size_t n);
 int					ft_strncmp(const char *s1, const char *s2, size_t n);
 int					ft_strnequ(char const *s1, char const *s2, size_t n);
 char				*ft_strnew(size_t size);
+int					ft_strnloc(char c, void *ptr, int n);
 char				*ft_strnstr(const char *s1, const char *s2, size_t n);
 char				*ft_strrchr(const char *s, int c);
 char				*ft_strrev(char *str);

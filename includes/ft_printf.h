@@ -6,7 +6,7 @@
 /*   By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/31 18:06:49 by nmougino          #+#    #+#             */
-/*   Updated: 2016/06/14 15:53:00 by nmougino         ###   ########.fr       */
+/*   Updated: 2016/06/14 17:10:49 by nmougino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,6 @@
 # include <stdarg.h>
 
 # define BUF_SIZE	3
-
-# ifdef WINDIR
-	typedef long	intmax_t;
-	typedef unsigned long	uintmax_t;
-# endif
 
 enum				e_hljz
 {
@@ -57,7 +52,6 @@ enum				e_flags
 
 typedef struct		s_spec
 {
-	//	flags:		X_X_X_#_0_-_' '_+
 	char			flags;
 	int				mfw;
 	int				prec;

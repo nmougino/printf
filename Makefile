@@ -6,7 +6,7 @@
 #    By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/04/05 16:20:26 by nmougino          #+#    #+#              #
-#    Updated: 2016/06/12 21:19:05 by nmougino         ###   ########.fr        #
+#    Updated: 2016/06/14 16:21:44 by nmougino         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -96,7 +96,7 @@ glulib: relib
 
 all: $(NAME)
 
-alllib: lib
+alllib: deplib lib
 
 re: fclean all
 

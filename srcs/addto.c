@@ -6,7 +6,7 @@
 /*   By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/12 19:05:45 by nmougino          #+#    #+#             */
-/*   Updated: 2016/06/12 22:14:07 by nmougino         ###   ########.fr       */
+/*   Updated: 2016/06/14 15:54:02 by nmougino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	addto(char c, t_print *print)
 {
-	if (++(print->pos) >= BUF_SIZE)
+	if (print->pos == BUF_SIZE)
 	{
 		write(1, print->buf, BUF_SIZE);
 		(print->pos) = 0;

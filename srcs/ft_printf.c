@@ -6,7 +6,7 @@
 /*   By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/31 18:09:25 by nmougino          #+#    #+#             */
-/*   Updated: 2016/06/13 18:25:03 by nmougino         ###   ########.fr       */
+/*   Updated: 2016/06/14 15:54:42 by nmougino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,21 +32,12 @@ static void	initprint(t_print *print, t_spec *spec)
 	print->pos = 0;
 	print->ans = 0;
 	print->spec = spec;
+	ft_bzero(print->buf, BUF_SIZE);
 }
 
 static int	printerror(t_print *print)
 {
-	int		i;
-	int		pos;
-	char	*buf;
-
-	pos = print->pos;
-	buf = print->buf;
-	i = 0;
 	write(1, print->buf, print->pos);
-	while (i < pos)
-		buf[i++] = 0;
-	(print->pos) = 0;
 	va_end(print->ap);
 	return (-1);
 }

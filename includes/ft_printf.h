@@ -6,23 +6,18 @@
 /*   By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/31 18:06:49 by nmougino          #+#    #+#             */
-/*   Updated: 2016/06/14 15:53:00 by nmougino         ###   ########.fr       */
+/*   Updated: 2016/06/18 22:03:47 by nmougino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
 
-# include "libft.h"
 # include <unistd.h>
+# include <stdlib.h>
 # include <stdarg.h>
 
 # define BUF_SIZE	3
-
-# ifdef WINDIR
-	typedef long	intmax_t;
-	typedef unsigned long	uintmax_t;
-# endif
 
 enum				e_hljz
 {
@@ -113,5 +108,16 @@ void				uitoabase(uintmax_t p, char *base, t_print *print, int l);
 
 intmax_t			recupparam(int type, va_list ap);
 uintmax_t			urecupparam(int type, va_list ap);
+
+int					ft_abs(int nb);
+void				ft_bzero(void *s, size_t n);
+int					ft_max(int a, int b);
+int					ft_min(int a, int b);
+int					ft_nbrlen(long nb);
+int					ft_nbrlenbase(unsigned long nb, int base);
+int					ft_bitlen(long p);
+char				*ft_strchr(const char *s, int c);
+size_t				ft_strlen(const char *s);
+int					ft_strnloc(char c, void *ptr, int n);
 
 #endif

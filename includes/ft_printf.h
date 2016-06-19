@@ -6,7 +6,7 @@
 /*   By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/31 18:06:49 by nmougino          #+#    #+#             */
-/*   Updated: 2016/06/19 18:48:16 by nmougino         ###   ########.fr       */
+/*   Updated: 2016/06/19 19:31:43 by nmougino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,7 @@ void				applynumprec(t_print *print, t_spec *spec, int len);
 void				addto(char c, t_print *print);
 
 int					setflag(t_spec *spec, const char *str);
-int					setmfwi(t_spec *spec, const char *str);
+int					setmfwi(t_print *print, t_spec *spec, const char *str);
 int					setprec(t_spec *spec, const char *str);
 int					setmodi(t_spec *spec, const char *str);
 int					setconv(t_spec *spec, const char *str);

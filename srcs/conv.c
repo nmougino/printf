@@ -6,11 +6,12 @@
 /*   By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/02 19:00:03 by nmougino          #+#    #+#             */
-/*   Updated: 2016/06/19 19:29:57 by nmougino         ###   ########.fr       */
+/*   Updated: 2016/06/19 21:42:32 by nmougino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+#include <stdio.h>
 
 static int	setspec(t_print *print, t_spec *spec, const char *str)
 {

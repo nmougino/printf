@@ -6,7 +6,7 @@
 /*   By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/02 19:02:45 by nmougino          #+#    #+#             */
-/*   Updated: 2016/06/19 19:31:39 by nmougino         ###   ########.fr       */
+/*   Updated: 2016/06/19 20:39:24 by nmougino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,6 @@ int	setmodi(t_spec *spec, const char *str)
 	int		i;
 
 	i = 0;
-	spec->hljz = E_NO;
 	while (ft_strchr("hljz", str[i]))
 	{
 		spec->hljz = (str[i] == 'h' && spec->hljz == E_H) ? E_HH : spec->hljz;
@@ -97,7 +96,7 @@ int	setmodi(t_spec *spec, const char *str)
 		spec->hljz = (str[i] == 'l' && spec->hljz == E_L) ? E_LL : spec->hljz;
 		spec->hljz = (str[i] == 'j') ? E_J : spec->hljz;
 		spec->hljz = (str[i] == 'z') ? E_Z : spec->hljz;
-		++i;
+		i++;
 	}
 	return (i);
 }

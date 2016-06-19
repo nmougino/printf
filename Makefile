@@ -6,7 +6,7 @@
 #    By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/04/05 16:20:26 by nmougino          #+#    #+#              #
-#    Updated: 2016/06/14 16:21:44 by nmougino         ###   ########.fr        #
+#    Updated: 2016/06/19 16:37:59 by nmougino         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,12 +16,11 @@ CFLAGS =	-Wall -Wextra -Werror
 ADDFLAGS =
 
 #	Binary
-NAME =		ft_printf
-LIBNAME =	libftprintf.a
+NAME =		libftprintf.a
 DST =
 
 #	Default rule
-DEFRULE =	alllib
+DEFRULE =	all
 
 #	Dossiers utiles
 SRCDIR =	srcs
@@ -42,13 +41,23 @@ SRC =		addto.c \
 			conv_s.c \
 			conv_u.c \
 			conv_uni.c \
+			ft_abs.c \
+			ft_bitlen.c \
+			ft_bzero.c \
+			ft_max.c \
+			ft_min.c \
+			ft_nbrlen.c \
+			ft_nbrlenbase.c \
 			ft_printf.c \
+			ft_strchr.c \
+			ft_strlen.c \
+			ft_strnloc.c \
 			recupparam.c \
 			setconvparts.c \
 			sitoa.c \
 			uitoabase.c
 
-LIB =		ft
+LIB =
 OBJ =		$(SRC:.c=.o)
 
 #	Prefixes
@@ -79,56 +88,39 @@ endef
 #	RULES
 #
 
-.PHONY = default glu glulib all alllib re relib $(OBJDIR) $(NAME) lib deplib clean fclean
+.PHONY = default glu all re $(OBJDIR) $(NAME) deplib clean fclean
 
 #	Main rules
 default:
-	@echo "\n\n$(GRA)$(GRE)			-*-  MAKEFILE  -*- \n$(BLU)  @nmougino$(DEF)\n"
 	@echo "$(GRA)  DEFAULT RULE EXECUTION  :::  rule $(DEFRULE)$(DEF)"
 	@$(addprefix make ,$(DEFRULE))
-	@echo "FIN DU PROGRAMME COMPILATION TERMINEE"
+	@echo "$(GRE)$(GRA)Programme termine :)$(DEF)"
 
 glu: re
 	make clean
 
-glulib: relib
-	make clean
-
 all: $(NAME)
 
-alllib: deplib lib
-
 re: fclean all
-
-relib: fclean alllib
 
 #	Compilation rules
 $(OBJDIR)/%.o: $(SRCDIR)/%.c
 	$(CC) $(CFLAGS)	-c -o $@ $^ -I$(INCDIR)
 
 $(OBJDIR):
-	@echo "\n$(GRA)$(CYA)@ ++ Objects compilation$(DEF)"
-	mkdir -p $(OBJDIR)
+	@echo "$(GRA)$(CYA)@ ++ Objects compilation$(DEF)"
+	@mkdir -p $(OBJDIR)
 
-$(NAME): $(OBJDIR) $(OBJP) deplib
-	@echo "\n$(GRA)$(CYA)@ ++ $(NAME) compilation$(DEF)"
-	$(CC) $(CFLAGS)	-o $@ $(OBJP) -I$(INCDIR) -L$(LIBDIR) $(LLIBP) $(ADDFLAGS)
-
-lib: $(OBJDIR) $(OBJP)
-	@echo "\n$(PUR)@ Library indexation$(DEF)"
-	ar rc $(DST)$(LIBNAME) $(OBJP)
-	ranlib $(DST)$(LIBNAME)
-
-deplib:
-	@mkdir -p libs
-	$(addprefix make -C ,$(addsuffix /$(\n), $(LIBP)))
+$(NAME): $(OBJDIR) $(OBJP)
+	@echo "$(PUR)@ Library indexation$(DEF)"
+	@ar rc $(DST)$(NAME) $(OBJP)
+	@ranlib $(DST)$(NAME)
 
 #	MrProper's legacy
 clean:
-	@echo "\n$(RED)@ Objects deletion$(DEF)"
-	rm -rf $(OBJDIR)
+	@echo "$(RED)@ Objects deletion$(DEF)"
+	@rm -rf $(OBJDIR)
 
 fclean: clean
-	@echo "\n$(RED)@ Binary deletion$(DEF)"
+	@echo "$(RED)@ Binary deletion$(DEF)"
 	@rm -f $(NAME)
-	@rm -f $(LIBNAME)

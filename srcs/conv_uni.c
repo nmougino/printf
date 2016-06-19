@@ -6,7 +6,7 @@
 /*   By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/12 19:09:48 by nmougino          #+#    #+#             */
-/*   Updated: 2016/06/12 19:34:31 by nmougino         ###   ########.fr       */
+/*   Updated: 2016/06/15 14:25:50 by nmougino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,6 +81,8 @@ void		conv_ls(t_spec *spec, t_print *print)
 
 	i = 0;
 	p = (wchar_t*)urecupparam(E_LONG, print->ap);
+	if (!p)
+		p = L"(null)";
 	nbbi = ft_nbrlenbase(p[i], 2);
 	j = (spec->prec <= -1) ? nboc(nbbi) : 0;
 	(!(spec->flags & E_DASH)) ? applymfw(print, spec, spec->mfw -

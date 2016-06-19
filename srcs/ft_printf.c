@@ -6,7 +6,7 @@
 /*   By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/31 18:09:25 by nmougino          #+#    #+#             */
-/*   Updated: 2016/06/14 15:54:42 by nmougino         ###   ########.fr       */
+/*   Updated: 2016/06/19 17:12:48 by nmougino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,7 @@ int			ft_printf(const char *format, ...)
 	i = 0;
 	va_start(print.ap, format);
 	initprint(&print, &spec);
+	print.fd = 1;
 	while (format[i])
 	{
 		if (format[i] != '%')
@@ -63,6 +64,32 @@ int			ft_printf(const char *format, ...)
 		i++;
 	}
 	write(1, print.buf, print.pos);
+	va_end(print.ap);
+	return (print.ans);
+}
+
+int			ft_dprintf(int fd, const char *format, ...)
+{
+	int				i;
+	int				tmp;
+	t_print			print;
+	t_spec			spec;
+
+	i = 0;
+	va_start(print.ap, format);
+	initprint(&print, &spec);
+	print.fd = fd;
+	while (format[i])
+	{
+		if (format[i] != '%')
+			addto(format[i], &print);
+		else if ((tmp = conv(&spec, &print, format + i + 1)) == -1)
+			return (printerror(&print));
+		else
+			i += tmp;
+		i++;
+	}
+	write(print.fd, print.buf, print.pos);
 	va_end(print.ap);
 	return (print.ans);
 }

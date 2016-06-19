@@ -6,11 +6,7 @@
 /*   By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/31 18:06:49 by nmougino          #+#    #+#             */
-<<<<<<< HEAD
-/*   Updated: 2016/06/14 17:10:49 by nmougino         ###   ########.fr       */
-=======
-/*   Updated: 2016/06/18 22:03:47 by nmougino         ###   ########.fr       */
->>>>>>> release
+/*   Updated: 2016/06/19 17:12:33 by nmougino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,9 +67,11 @@ typedef struct		s_print
 	void			*convftab[15];
 	int				ans;
 	t_spec			*spec;
+	int				fd;
 }					t_print;
 
 int					ft_printf(const char *format, ...);
+int					ft_dprintf(int fd, const char *format, ...);
 
 void				applyplusspace(t_print *print, t_spec *spec, int s);
 void				applysharp(t_print *print, t_spec *spec);

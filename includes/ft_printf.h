@@ -6,7 +6,7 @@
 /*   By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/31 18:06:49 by nmougino          #+#    #+#             */
-/*   Updated: 2016/06/19 19:31:43 by nmougino         ###   ########.fr       */
+/*   Updated: 2016/06/20 17:47:11 by nmougino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ typedef struct		s_print
 	char			buf[BUF_SIZE];
 	unsigned int	pos;
 	va_list			ap;
-	void			*convftab[15];
+	void			*convftab[16];
 	int				ans;
 	t_spec			*spec;
 	int				fd;
@@ -101,6 +101,7 @@ void				conv_x(t_spec *spec, t_print *print);
 void				conv_bx(t_spec *spec, t_print *print);
 void				conv_c(t_spec *spec, t_print *print);
 void				conv_lc(t_spec *spec, t_print *print);
+void				conv_mod(t_spec *spec, t_print *print);
 
 int					conv(t_spec *spec, t_print *print, const char *format);
 

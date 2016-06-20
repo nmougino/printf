@@ -6,7 +6,7 @@
 /*   By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/02 19:02:45 by nmougino          #+#    #+#             */
-/*   Updated: 2016/06/19 20:39:24 by nmougino         ###   ########.fr       */
+/*   Updated: 2016/06/20 17:43:35 by nmougino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,7 +106,7 @@ int	setconv(t_spec *spec, const char *str)
 	int		i;
 
 	i = 0;
-	if (!(ft_strchr("sSpdDioOuUxXcCb", str[i])))
+	if (!(ft_strchr("sSpdDioOuUxXcCb%", str[i])))
 		return (-1);
 	spec->conv = str[i];
 	return (1);

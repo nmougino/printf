@@ -6,7 +6,7 @@
 #    By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/04/05 16:20:26 by nmougino          #+#    #+#              #
-#    Updated: 2016/06/19 21:38:52 by nmougino         ###   ########.fr        #
+#    Updated: 2016/06/20 17:44:50 by nmougino         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,6 +36,7 @@ SRC =		addto.c \
 			conv_c.c \
 			conv_di.c \
 			conv_hexa.c \
+			conv_mod.c \
 			conv_o.c \
 			conv_p.c \
 			conv_s.c \

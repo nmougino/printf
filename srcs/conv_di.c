@@ -6,7 +6,7 @@
 /*   By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/12 19:07:26 by nmougino          #+#    #+#             */
-/*   Updated: 2016/06/20 18:42:00 by nmougino         ###   ########.fr       */
+/*   Updated: 2016/06/20 18:56:37 by nmougino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ void	conv_i(t_spec *spec, t_print *print)
 	p = recupparam(spec->hljz, print->ap);
 	i = (p < 0) || (spec->flags & 3);
 	++spec->mfw;
-	//j = (!spec->prec && !p) ? 0
 	j = !(spec->prec || p) ? 0
 		: (ft_max(spec->prec + i, ft_nbrlen(ft_abs(p)) + i));
 	(spec->flags & E_ZERO) ? applyplusspace(print, spec, p >= 0) : --spec->mfw;
@@ -41,7 +40,6 @@ void	conv_d(t_spec *spec, t_print *print)
 	p = recupparam(spec->hljz, print->ap);
 	i = (p < 0) || (spec->flags & 3);
 	++spec->mfw;
-	//j = (!spec->prec && !p) ? 0
 	j = !(spec->prec || p) ? 0
 		: (ft_max(spec->prec + i, ft_nbrlen(ft_abs(p)) + i));
 	(spec->flags & E_ZERO) ? applyplusspace(print, spec, p >= 0) : --spec->mfw;

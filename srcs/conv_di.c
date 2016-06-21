@@ -6,13 +6,13 @@
 /*   By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/12 19:07:26 by nmougino          #+#    #+#             */
-/*   Updated: 2016/06/20 23:45:44 by nmougino         ###   ########.fr       */
+/*   Updated: 2016/06/21 16:23:09 by nmougino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	conv_d(t_spec *spec, t_print *print)
+void		conv_d(t_spec *spec, t_print *print)
 {
 	int			i;
 	int			j;
@@ -29,10 +29,11 @@ void	conv_d(t_spec *spec, t_print *print)
 	!(spec->flags & E_ZERO) ? applyplusspace(print, spec, p >= 0) : 0;
 	applynumprec(print, spec, ft_nbrlen(ft_abs(p)));
 	(!spec->prec && !p) ? 0 : sitoa(p, print, ft_nbrlen(ft_abs(p)));
-	(spec->flags & E_DASH) ? applymfw(print, spec, spec->mfw + (p > 0)) : 0;
+	(spec->flags & E_DASH) ? applymfw(print, spec, spec->mfw +
+		((p > 0) && ((!spec->flags & 1) && p < 0))) : 0;
 }
 
-void	conv_i(t_spec *spec, t_print *print)
+void		conv_i(t_spec *spec, t_print *print)
 {
 	int			i;
 	int			j;
@@ -49,7 +50,8 @@ void	conv_i(t_spec *spec, t_print *print)
 	!(spec->flags & E_ZERO) ? applyplusspace(print, spec, p >= 0) : 0;
 	applynumprec(print, spec, ft_nbrlen(ft_abs(p)));
 	(!spec->prec && !p) ? 0 : sitoa(p, print, ft_nbrlen(ft_abs(p)));
-	(spec->flags & E_DASH) ? applymfw(print, spec, spec->mfw + (p > 0)) : 0;
+	(spec->flags & E_DASH) ? applymfw(print, spec, spec->mfw +
+		((p > 0) && ((!spec->flags & 1) && p < 0))) : 0;
 }
 
 void	conv_ld(t_spec *spec, t_print *print)

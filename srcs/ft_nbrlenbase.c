@@ -6,7 +6,7 @@
 /*   By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/09 17:06:58 by nmougino          #+#    #+#             */
-/*   Updated: 2016/06/19 20:13:18 by nmougino         ###   ########.fr       */
+/*   Updated: 2016/06/22 17:02:41 by nmougino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int		ft_nbrlenbase(unsigned long nb, int base)
 
 	i = 1;
 	tmp = (double)nb;
-	while (tmp > (unsigned long)base)
+	while (tmp >= (unsigned long)base)
 	{
 		++i;
 		tmp /= base;

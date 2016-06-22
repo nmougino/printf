@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_abs.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nmougino <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/15 17:59:01 by nmougino          #+#    #+#             */
-/*   Updated: 2016/03/15 18:13:12 by nmougino         ###   ########.fr       */
+/*   Updated: 2016/06/22 17:12:38 by nmougino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_abs(int nb)
+unsigned long	ft_abs(long nb)
 {
 	if (nb < 0)
 		return (-nb);

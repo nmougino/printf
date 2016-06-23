@@ -6,7 +6,7 @@
 /*   By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/02 19:02:45 by nmougino          #+#    #+#             */
-/*   Updated: 2016/06/12 21:19:22 by nmougino         ###   ########.fr       */
+/*   Updated: 2016/06/20 17:43:35 by nmougino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,18 +41,24 @@ int	setflag(t_spec *spec, const char *str)
 	return (i);
 }
 
-int	setmfwi(t_spec *spec, const char *str)
+int	setmfwi(t_print *print, t_spec *spec, const char *str)
 {
 	int		i;
 
 	i = 0;
 	spec->mfw = 0;
-	while (ft_strchr("0123456789", str[i]))
+	if (str[i] == '*')
 	{
-		spec->mfw *= 10;
-		spec->mfw += (str[i] - '0');
 		++i;
+		spec->mfw = va_arg(print->ap, int);
 	}
+	else
+		while (ft_strchr("0123456789", str[i]))
+		{
+			spec->mfw *= 10;
+			spec->mfw += (str[i] - '0');
+			++i;
+		}
 	return (i);
 }
 
@@ -82,7 +88,6 @@ int	setmodi(t_spec *spec, const char *str)
 	int		i;
 
 	i = 0;
-	spec->hljz = E_NO;
 	while (ft_strchr("hljz", str[i]))
 	{
 		spec->hljz = (str[i] == 'h' && spec->hljz == E_H) ? E_HH : spec->hljz;
@@ -91,7 +96,7 @@ int	setmodi(t_spec *spec, const char *str)
 		spec->hljz = (str[i] == 'l' && spec->hljz == E_L) ? E_LL : spec->hljz;
 		spec->hljz = (str[i] == 'j') ? E_J : spec->hljz;
 		spec->hljz = (str[i] == 'z') ? E_Z : spec->hljz;
-		++i;
+		i++;
 	}
 	return (i);
 }
@@ -101,7 +106,7 @@ int	setconv(t_spec *spec, const char *str)
 	int		i;
 
 	i = 0;
-	if (!(ft_strchr("sSpdDioOuUxXcCb", str[i])))
+	if (!(ft_strchr("sSpdDioOuUxXcCb%", str[i])))
 		return (-1);
 	spec->conv = str[i];
 	return (1);

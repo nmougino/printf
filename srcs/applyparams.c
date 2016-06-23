@@ -6,7 +6,7 @@
 /*   By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/12 19:10:04 by nmougino          #+#    #+#             */
-/*   Updated: 2016/06/12 19:10:05 by nmougino         ###   ########.fr       */
+/*   Updated: 2016/06/20 23:34:58 by nmougino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,8 @@ void	applyplusspace(t_print *print, t_spec *spec, int s)
 		addto('+', print);
 	else if (spec->flags & (1 << 1))
 		addto(' ', print);
+	else
+		--spec->mfw;
 }
 
 void	applymfw(t_print *print, t_spec *spec, int mfw)

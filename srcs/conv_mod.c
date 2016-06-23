@@ -1,28 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_nbrlenbase.c                                    :+:      :+:    :+:   */
+/*   conv_mod.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/06/09 17:06:58 by nmougino          #+#    #+#             */
-/*   Updated: 2016/06/22 17:02:41 by nmougino         ###   ########.fr       */
+/*   Created: 2016/06/20 17:42:13 by nmougino          #+#    #+#             */
+/*   Updated: 2016/06/20 17:42:46 by nmougino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int		ft_nbrlenbase(unsigned long nb, int base)
+void	conv_mod(t_spec *spec, t_print *print)
 {
-	double	tmp;
-	int		i;
-
-	i = 1;
-	tmp = (double)nb;
-	while (tmp >= (unsigned long)base)
-	{
-		++i;
-		tmp /= base;
-	}
-	return (i);
+	(!(spec->flags & E_DASH)) ? applymfw(print, spec, spec->mfw - 1) : 0;
+	addto('%', print);
+	(spec->flags & E_DASH) ? applymfw(print, spec, spec->mfw) : 0;
 }

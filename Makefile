@@ -6,7 +6,7 @@
 #    By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/04/05 16:20:26 by nmougino          #+#    #+#              #
-#    Updated: 2016/06/20 17:44:50 by nmougino         ###   ########.fr        #
+#    Updated: 2016/06/23 17:31:01 by nmougino         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ NAME =		libftprintf.a
 DST =
 
 #	Default rule
-DEFRULE =	glu
+DEFRULE =	all
 
 #	Dossiers utiles
 SRCDIR =	srcs

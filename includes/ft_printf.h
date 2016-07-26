@@ -19,8 +19,11 @@
 
 # define BUF_SIZE	500
 
-typedef long long intmax_t;
-typedef unsigned long long uintmax_t;
+/*
+** portabilite
+** typedef long long intmax_t;
+** typedef unsigned long long uintmax_t;
+*/
 
 enum				e_hljz
 {

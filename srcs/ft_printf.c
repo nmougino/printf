@@ -14,6 +14,8 @@
 
 static void	initprint(t_print *print, t_spec *spec)
 {
+	//raccourcir le tableau ^^;
+	// biensur qu'il y a plus simple
 	print->convftab[0] = &conv_s;
 	print->convftab[1] = &conv_ls;
 	print->convftab[2] = &conv_p;
@@ -33,6 +35,7 @@ static void	initprint(t_print *print, t_spec *spec)
 	print->pos = 0;
 	print->ans = 0;
 	print->spec = spec;
+	spec->hljz = 0;
 	ft_bzero(print->buf, BUF_SIZE);
 }
 

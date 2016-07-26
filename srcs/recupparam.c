@@ -11,11 +11,17 @@
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+#include <stdio.h>
 
 intmax_t	recupparam(int type, va_list ap)
 {
+	printf("ET LE PUTAIN DE TYPE EST %d\n", type);
 	if (type == E_INT)
-		return ((intmax_t)va_arg(ap, int));
+	{
+		intmax_t papiu = ((intmax_t)va_arg(ap, int));
+		printf("l'argument est:::: %jd\n", papiu);
+		return (papiu);
+	}
 	if (type == E_CHAR)
 		return ((intmax_t)(char)va_arg(ap, int));
 	if (type == E_SHORT)

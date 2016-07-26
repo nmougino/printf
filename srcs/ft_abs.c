@@ -10,7 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-unsigned long	ft_abs(long nb)
+#include "ft_printf.h"
+
+uintmax_t	ft_abs(intmax_t nb)
 {
 	if (nb < 0)
 		return (-nb);

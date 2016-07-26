@@ -19,6 +19,11 @@
 
 # define BUF_SIZE	500
 
+/*
+** typedef long long intmax_t;
+** typedef unsigned long long uintmax_t;
+*/
+
 enum				e_hljz
 {
 	E_NO = 0,
@@ -111,13 +116,13 @@ void				uitoabase(uintmax_t p, char *base, t_print *print, int l);
 intmax_t			recupparam(int type, va_list ap);
 uintmax_t			urecupparam(int type, va_list ap);
 
-unsigned long		ft_abs(long nb);
+uintmax_t		ft_abs(intmax_t nb);
 void				ft_bzero(void *s, size_t n);
 int					ft_max(int a, int b);
 int					ft_min(int a, int b);
-int					ft_nbrlen(long nb);
-int					ft_nbrlenbase(unsigned long nb, int base);
-int					ft_bitlen(long p);
+int					ft_nbrlen(intmax_t nb);
+int					ft_nbrlenbase(uintmax_t nb, int base);
+int					ft_bitlen(intmax_t p);
 char				*ft_strchr(const char *s, int c);
 size_t				ft_strlen(const char *s);
 int					ft_strnloc(char c, void *ptr, int n);

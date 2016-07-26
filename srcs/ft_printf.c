@@ -34,8 +34,10 @@ static void	initprint(t_print *print, t_spec *spec)
 	print->convftab[15] = &conv_mod;
 	print->pos = 0;
 	print->ans = 0;
-	print->spec = spec;
 	spec->hljz = 0;
+	spec->flags = 0;
+	spec->mfw = 0;
+	print->spec = spec;
 	ft_bzero(print->buf, BUF_SIZE);
 }
 

@@ -6,7 +6,7 @@
 /*   By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/12 19:06:00 by nmougino          #+#    #+#             */
-/*   Updated: 2016/08/02 12:40:13 by nmougino         ###   ########.fr       */
+/*   Updated: 2016/08/02 13:51:56 by nmougino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 void	conv_p(t_spec *spec, t_print *print)
 {
-	spec->hljz = E_L;
 	int			j;
 	uintmax_t	p;
 
+	spec->hljz = E_L;
 	p = urecupparam(spec->hljz, print->ap);
 	j = !(spec->prec || p) ? 0
 		: (ft_max(spec->prec, ft_nbrlenbase(p, 16) + 2));

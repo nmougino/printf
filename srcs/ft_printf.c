@@ -6,7 +6,7 @@
 /*   By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/31 18:09:25 by nmougino          #+#    #+#             */
-/*   Updated: 2016/08/02 10:12:35 by nmougino         ###   ########.fr       */
+/*   Updated: 2016/08/02 12:06:23 by nmougino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ int			ft_printf(const char *format, ...)
 			return (printerror(&print));
 		else
 			i += tmp;
-		i++;
+		++i;
 	}
 	write(1, print.buf, print.pos);
 	va_end(print.ap);

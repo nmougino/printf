@@ -2,33 +2,30 @@
 
 ####Projet pedagogique
 
-Objet: reproduire les applications principales de la fonction PRINTF
+###Objet: reproduire les applications principales de la fonction PRINTF
 
-Specifications:
-
-Cette version egalise, voir rivalise avec la vitesse de la fonction originale
-pour l'affichage des nombres entiers.
-Elle a ete pense dans l'economie de la memoire, d'operations et avant tout
-d'appels systemes.
+Cette version a ete pense en terme d'efficacite, de rapidite et de minimisation
+a l'extreme des appels systemes.
+Aucun mallocs, 3 writes ecrits dans l'ensemble du projet.
 
 Le sujet du projet se trouve a la racine du depot,
-en bonus ont ete rajoute
+en bonus ont ete rajoutes:
+
+- dprintf
+meme comportement que printf,
+en specifiant en parametre le file descriptor dans lequel ecrire.
+Utile dans le cas de traitements de fichiers.
 
 - la conversion binaire
-affiche le parametre donne en binaire.
+affiche le parametre fournit au format binaire.
+le flag # separe des groupes de 4 bits.
+la precision remplie des groupes de 4 (precision * 4) et les separes
 
-le flag # separe par 4.
-la precision remplie des groupes de 4. (precision * 4)
 
-- la fonction dprintf aussi inclue dans la librairie.
-a le meme comportement que printf, en specifiant en parametre le file descriptor
-dans lequel ecrire.
-
-- wildcard
-le flag *
-
+- wildcard - le flag *
 fait office de minimum field width,
-on passe alors en parametre la mfw avant le parametre a convertir.
+on passe alors en parametre la mfw avant le parametre a convertir,
+tres utile pour le projet ft_ls.
 
-
-toutes les fonctions sont retrouvables dans la libft
+- En outre cette librairie est aussi rapide que le printf original en ce qui
+concerne l'affichage des int.

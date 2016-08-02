@@ -6,7 +6,7 @@
 /*   By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/12 19:07:26 by nmougino          #+#    #+#             */
-/*   Updated: 2016/06/22 23:38:32 by nmougino         ###   ########.fr       */
+/*   Updated: 2016/08/02 13:47:44 by nmougino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	conv_d(t_spec *spec, t_print *print)
 		(!spec->prec && !p) ? 0 : sitoa(p, print, ft_nbrlen(ft_abs(p)));
 		j = (spec->flags & 3) && (p > 0);
 		(spec->flags & E_DASH) ? applymfw(print, spec, spec->mfw +
-			(p > 0) - j) : 0;
+			(p >= 0) - j) : 0;
 	}
 }
 
@@ -60,7 +60,7 @@ void	conv_i(t_spec *spec, t_print *print)
 		(!spec->prec && !p) ? 0 : sitoa(p, print, ft_nbrlen(ft_abs(p)));
 		j = (spec->flags & 3) && (p > 0);
 		(spec->flags & E_DASH) ? applymfw(print, spec, spec->mfw +
-			(p > 0) - j) : 0;
+			(p >= 0) - j) : 0;
 	}
 }
 

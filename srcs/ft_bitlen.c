@@ -6,7 +6,7 @@
 /*   By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/19 18:54:40 by nmougino          #+#    #+#             */
-/*   Updated: 2016/06/19 18:54:41 by nmougino         ###   ########.fr       */
+/*   Updated: 2016/08/02 13:44:24 by nmougino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,5 +21,7 @@ int	ft_bitlen(intmax_t p)
 	i = 0;
 	while (tmp && ++i)
 		tmp = tmp >> 1;
+	if (!i)
+		return (1);
 	return (i);
 }

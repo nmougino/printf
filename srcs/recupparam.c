@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+#include <stdio.h>
 
 intmax_t	recupparam(int type, va_list ap)
 {

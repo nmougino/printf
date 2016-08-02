@@ -6,7 +6,7 @@
 /*   By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/31 18:09:25 by nmougino          #+#    #+#             */
-/*   Updated: 2016/06/20 17:44:18 by nmougino         ###   ########.fr       */
+/*   Updated: 2016/08/02 10:12:35 by nmougino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,9 @@ static void	initprint(t_print *print, t_spec *spec)
 	print->convftab[15] = &conv_mod;
 	print->pos = 0;
 	print->ans = 0;
+	spec->hljz = 0;
+	spec->flags = 0;
+	spec->mfw = 0;
 	print->spec = spec;
 	ft_bzero(print->buf, BUF_SIZE);
 }

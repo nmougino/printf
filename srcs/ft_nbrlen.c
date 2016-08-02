@@ -12,7 +12,7 @@
 
 #include "ft_printf.h"
 
-int		ft_nbrlen(long nb)
+int		ft_nbrlen(intmax_t nb)
 {
 	int		i;
 

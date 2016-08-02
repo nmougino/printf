@@ -12,10 +12,10 @@
 
 #include "ft_printf.h"
 
-int	ft_bitlen(long p)
+int	ft_bitlen(intmax_t p)
 {
-	long	tmp;
-	int		i;
+	intmax_t	tmp;
+	int			i;
 
 	tmp = p;
 	i = 0;

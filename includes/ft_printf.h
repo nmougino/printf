@@ -6,7 +6,7 @@
 /*   By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/31 18:06:49 by nmougino          #+#    #+#             */
-/*   Updated: 2016/06/21 16:56:14 by nmougino         ###   ########.fr       */
+/*   Updated: 2016/08/02 10:13:53 by nmougino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,7 +117,7 @@ void				uitoabase(uintmax_t p, char *base, t_print *print, int l);
 intmax_t			recupparam(int type, va_list ap);
 uintmax_t			urecupparam(int type, va_list ap);
 
-uintmax_t		ft_abs(intmax_t nb);
+uintmax_t			ft_abs(intmax_t nb);
 void				ft_bzero(void *s, size_t n);
 int					ft_max(int a, int b);
 int					ft_min(int a, int b);

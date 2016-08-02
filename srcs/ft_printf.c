@@ -6,7 +6,7 @@
 /*   By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/31 18:09:25 by nmougino          #+#    #+#             */
-/*   Updated: 2016/06/20 17:44:18 by nmougino         ###   ########.fr       */
+/*   Updated: 2016/08/02 10:12:35 by nmougino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,6 @@
 
 static void	initprint(t_print *print, t_spec *spec)
 {
-	//raccourcir le tableau ^^;
-	// biensur qu'il y a plus simple
 	print->convftab[0] = &conv_s;
 	print->convftab[1] = &conv_ls;
 	print->convftab[2] = &conv_p;

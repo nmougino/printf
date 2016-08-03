@@ -6,7 +6,7 @@
 /*   By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/31 18:09:25 by nmougino          #+#    #+#             */
-/*   Updated: 2016/08/02 12:06:23 by nmougino         ###   ########.fr       */
+/*   Updated: 2016/08/03 19:34:20 by nmougino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ static void	initprint(t_print *print, t_spec *spec)
 
 static int	printerror(t_print *print)
 {
-	write(1, print->buf, print->pos);
+	write(print->fd, print->buf, print->pos);
 	va_end(print->ap);
 	return (-1);
 }
@@ -93,7 +93,7 @@ int			ft_dprintf(int fd, const char *format, ...)
 			i += tmp;
 		i++;
 	}
-	write(print.fd, print.buf, print.pos);
+	write(fd, print.buf, print.pos);
 	va_end(print.ap);
 	return (print.ans);
 }

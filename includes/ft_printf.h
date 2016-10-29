@@ -6,7 +6,7 @@
 /*   By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/31 18:06:49 by nmougino          #+#    #+#             */
-/*   Updated: 2016/08/02 10:13:53 by nmougino         ###   ########.fr       */
+/*   Updated: 2016/10/29 18:16:51 by nmougino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,23 +58,27 @@ enum				e_flags
 
 typedef struct		s_spec
 {
-	char			flags;
 	int				mfw;
 	int				prec;
+	char			flags;
 	char			hljz;
 	char			conv;
+	char			padd;
+	int				pad;
 }					t_spec;
 
 typedef struct		s_print
 {
-	char			buf[BUF_SIZE];
-	unsigned int	pos;
-	va_list			ap;
 	void			*convftab[16];
+	unsigned int	pos;
 	int				ans;
-	t_spec			*spec;
 	int				fd;
+	char			buf[BUF_SIZE];
+	va_list			ap;
+	t_spec			*spec;
 }					t_print;
+
+typedef	int	(*convf_t)(t_spec*, t_print*);
 
 int					ft_printf(const char *format, ...);
 int					ft_dprintf(int fd, const char *format, ...);

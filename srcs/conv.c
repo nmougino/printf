@@ -6,7 +6,7 @@
 /*   By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/02 19:00:03 by nmougino          #+#    #+#             */
-/*   Updated: 2016/06/20 17:43:17 by nmougino         ###   ########.fr       */
+/*   Updated: 2016/10/29 18:17:12 by nmougino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ static int	setspec(t_print *print, t_spec *spec, const char *str)
 
 int			conv(t_spec *spec, t_print *print, const char *format)
 {
-	int	(*convf)(t_spec*, t_print*);
+	convf_t	convf;
 	int	tmp;
 
 	if (format[0] == '%')
@@ -41,7 +41,7 @@ int			conv(t_spec *spec, t_print *print, const char *format)
 	}
 	if ((tmp = setspec(print, spec, format)) == -1)
 		return (-1);
-	convf = print->convftab[ft_strnloc(spec->conv, "sSpdDioOuUxXcCb%", 16)];
+	convf = (convf_t)print->convftab[ft_strnloc(spec->conv, "sSpdDioOuUxXcCb%", 16)];
 	convf(spec, print);
 	return (tmp);
 }

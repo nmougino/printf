@@ -1,5 +1,7 @@
 #FT PRINTF
 
+Le commit de refonte l'a rendu compilable via Weverything, comme j'avais un rhume et franchement pas envie de reprendre tout le printf, je l'ai refait en dur en corrigeant erreur par erreur. Ce n'est donc pas le printf le plus optimise du monde, je m'en rend compte des mois plus tard grace a tout ce que j'ai appris entre temps.
+
 ####Projet pedagogique
 
 ###Objet: reproduire les applications principales de la fonction PRINTF

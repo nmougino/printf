@@ -3,18 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   ft_nbrlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nmougino <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/24 16:39:23 by nmougino          #+#    #+#             */
-/*   Updated: 2016/06/10 18:41:28 by nmougino         ###   ########.fr       */
+/*   Updated: 2016/10/29 19:10:34 by nmougino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int		ft_nbrlen(intmax_t nb)
+size_t	ft_nbrlen(intmax_t nb)
 {
-	int		i;
+	size_t	i;
 
 	i = 1;
 	if (nb < 0)

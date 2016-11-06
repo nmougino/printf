@@ -6,7 +6,7 @@
 /*   By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/24 17:05:52 by nmougino          #+#    #+#             */
-/*   Updated: 2016/08/02 11:09:15 by nmougino         ###   ########.fr       */
+/*   Updated: 2016/11/06 13:38:09 by nmougino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 size_t	ft_strlen(const char *s)
 {
-	int		ans;
+	register unsigned long	t;
 
-	ans = 0;
-	while (s[ans])
-		++ans;
-	return (ans);
+	t = (unsigned long)s;
+	while (*((char *)t))
+		++t;
+	return (t - (unsigned long)s);
 }

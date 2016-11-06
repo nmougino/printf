@@ -6,13 +6,13 @@
 /*   By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/27 11:26:44 by nmougino          #+#    #+#             */
-/*   Updated: 2016/05/27 11:36:37 by nmougino         ###   ########.fr       */
+/*   Updated: 2016/11/06 10:58:38 by nmougino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "ft_printf.h"
+
 int	ft_max(int a, int b)
 {
-	if (a >= b)
-		return (a);
-	return (b);
+	return ((a >= b) ? a : b);
 }

@@ -6,39 +6,39 @@
 /*   By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/12 19:09:48 by nmougino          #+#    #+#             */
-/*   Updated: 2016/06/19 21:43:19 by nmougino         ###   ########.fr       */
+/*   Updated: 2016/11/06 14:44:08 by nmougino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static void	adduni(wchar_t p, int nbbi, t_print *print)
+static void		adduni(wchar_t p, size_t nbbi, t_print *print)
 {
 	if (nbbi >= 1 && nbbi <= 7)
-		addto(p, print);
+		addto((char)p, print);
 	else if (nbbi >= 8 && nbbi <= 11)
 	{
-		addto(((3 << 6) | (p >> 6)), print);
-		addto(((1 << 7) | (63 & p)), print);
+		addto((char)((3 << 6) | (p >> 6)), print);
+		addto((char)((1 << 7) | (63 & p)), print);
 	}
 	else if (nbbi >= 12 && nbbi <= 16)
 	{
-		addto((7 << 5) | (p >> 12), print);
-		addto((1 << 7) | (63 & (p >> 6)), print);
-		addto((1 << 7) | (63 & p), print);
+		addto((char)((7 << 5) | (p >> 12)), print);
+		addto((char)((1 << 7) | (63 & (p >> 6))), print);
+		addto((char)((1 << 7) | (63 & p)), print);
 	}
 	else if (nbbi >= 17 && nbbi <= 21)
 	{
-		addto((15 << 4) | (p >> 18), print);
-		addto((1 << 7) | (63 & (p >> 12)), print);
-		addto((1 << 7) | (63 & (p >> 6)), print);
-		addto((1 << 7) | (63 & p), print);
+		addto((char)((15 << 4) | (p >> 18)), print);
+		addto((char)((1 << 7) | (63 & (p >> 12))), print);
+		addto((char)((1 << 7) | (63 & (p >> 6))), print);
+		addto((char)((1 << 7) | (63 & p)), print);
 	}
 }
 
 static int	ft_wstrlen(wchar_t *p)
 {
-	int		i;
+	int	i;
 
 	i = 0;
 	while (p[i])
@@ -46,7 +46,7 @@ static int	ft_wstrlen(wchar_t *p)
 	return (i);
 }
 
-static int	nboc(int nbbi)
+static int		nboc(size_t nbbi)
 {
 	if (nbbi >= 1 && nbbi <= 7)
 		return (1);
@@ -59,40 +59,42 @@ static int	nboc(int nbbi)
 	return (0);
 }
 
-void		conv_lc(t_spec *spec, t_print *print)
+void			conv_lc(t_spec *spec, t_print *print)
 {
 	wchar_t	p;
-	int		nbbi;
+	size_t	nbbi;
 
 	p = (wchar_t)urecupparam(spec->hljz, print->ap);
-	nbbi = ft_bitlen(p);
-	(!(spec->flags & E_DASH)) ? applymfw(print, spec, spec->mfw -
-		nboc(nbbi)) : 0;
+	nbbi = ft_bitlen((uintmax_t)p);
+	if (!(spec->flags & E_DASH))
+		applymfw(print, spec, spec->mfw - nboc(nbbi));
 	adduni(p, nbbi, print);
-	((spec->flags & E_DASH)) ? applymfw(print, spec, spec->mfw) : 0;
+	if ((spec->flags & E_DASH))
+		applymfw(print, spec, spec->mfw);
 }
 
-void		conv_ls(t_spec *spec, t_print *print)
+void			conv_ls(t_spec *spec, t_print *print)
 {
 	wchar_t	*p;
 	int		i;
-	int		nbbi;
+	size_t	nbbi;
 	int		j;
 
 	i = 0;
-	p = (wchar_t*)urecupparam(E_LONG, print->ap);
+	p = (wchar_t*)(unsigned long)urecupparam(E_LONG, print->ap);
 	if (!p)
 		p = L"(null)";
-	nbbi = ft_bitlen(p[i]);
+	nbbi = ft_bitlen((uintmax_t)p[i]);
 	j = (spec->prec <= -1) ? nboc(nbbi) : 0;
-	(!(spec->flags & E_DASH)) ? applymfw(print, spec, spec->mfw -
-		ft_wstrlen(p) - j) : 0;
+	if (!(spec->flags & E_DASH))
+		applymfw(print, spec, spec->mfw - ft_wstrlen(p) - j);
 	while (p[i] && (spec->prec > 0 || spec->prec <= -1))
 	{
-		nbbi = ft_nbrlenbase(p[i], 2);
+		nbbi = ft_nbrlenbase((uintmax_t)p[i], 2);
 		spec->prec -= nboc(nbbi);
 		adduni(p[i], nbbi, print);
 		i++;
 	}
-	((spec->flags & E_DASH)) ? applymfw(print, spec, spec->mfw) : 0;
+	if ((spec->flags & E_DASH))
+		applymfw(print, spec, spec->mfw);
 }

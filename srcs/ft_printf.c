@@ -6,7 +6,7 @@
 /*   By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/31 18:09:25 by nmougino          #+#    #+#             */
-/*   Updated: 2016/08/03 19:34:20 by nmougino         ###   ########.fr       */
+/*   Updated: 2016/11/06 13:36:53 by nmougino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,22 +14,22 @@
 
 static void	initprint(t_print *print, t_spec *spec)
 {
-	print->convftab[0] = &conv_s;
-	print->convftab[1] = &conv_ls;
-	print->convftab[2] = &conv_p;
-	print->convftab[3] = &conv_d;
-	print->convftab[4] = &conv_ld;
-	print->convftab[5] = &conv_i;
-	print->convftab[6] = &conv_o;
-	print->convftab[7] = &conv_lo;
-	print->convftab[8] = &conv_u;
-	print->convftab[9] = &conv_lu;
-	print->convftab[10] = &conv_x;
-	print->convftab[11] = &conv_bx;
-	print->convftab[12] = &conv_c;
-	print->convftab[13] = &conv_lc;
-	print->convftab[14] = &conv_b;
-	print->convftab[15] = &conv_mod;
+	(print->convftab[0]) = (void*)(&conv_s);
+	(print->convftab[1]) = (void*)(&conv_ls);
+	(print->convftab[2]) = (void*)(&conv_p);
+	(print->convftab[3]) = (void*)(&conv_d);
+	(print->convftab[4]) = (void*)(&conv_ld);
+	(print->convftab[5]) = (void*)(&conv_i);
+	(print->convftab[6]) = (void*)(&conv_o);
+	(print->convftab[7]) = (void*)(&conv_lo);
+	(print->convftab[8]) = (void*)(&conv_u);
+	(print->convftab[9]) = (void*)(&conv_lu);
+	(print->convftab[10]) = (void*)(&conv_x);
+	(print->convftab[11]) = (void*)(&conv_bx);
+	(print->convftab[12]) = (void*)(&conv_c);
+	(print->convftab[13]) = (void*)(&conv_lc);
+	(print->convftab[14]) = (void*)(&conv_b);
+	(print->convftab[15]) = (void*)(&conv_mod);
 	print->pos = 0;
 	print->ans = 0;
 	spec->hljz = 0;

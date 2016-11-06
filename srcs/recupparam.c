@@ -6,7 +6,7 @@
 /*   By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/02 22:15:38 by nmougino          #+#    #+#             */
-/*   Updated: 2016/06/02 23:02:30 by nmougino         ###   ########.fr       */
+/*   Updated: 2016/11/06 13:39:40 by nmougino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ intmax_t	recupparam(int type, va_list ap)
 		return ((intmax_t)va_arg(ap, size_t));
 	if (type == E_INTMAX)
 		return (va_arg(ap, intmax_t));
-	return (-1);
+	return (0);
 }
 
 uintmax_t	urecupparam(int type, va_list ap)
@@ -48,5 +48,5 @@ uintmax_t	urecupparam(int type, va_list ap)
 		return ((uintmax_t)va_arg(ap, size_t));
 	if (type == E_INTMAX)
 		return (va_arg(ap, uintmax_t));
-	return (-1);
+	return (0);
 }

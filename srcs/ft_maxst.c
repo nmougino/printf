@@ -1,20 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_abs.c                                           :+:      :+:    :+:   */
+/*   ft_maxst.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/03/15 17:59:01 by nmougino          #+#    #+#             */
-/*   Updated: 2016/06/22 17:12:38 by nmougino         ###   ########.fr       */
+/*   Created: 2016/05/27 11:26:44 by nmougino          #+#    #+#             */
+/*   Updated: 2016/11/06 14:20:42 by nmougino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-uintmax_t	ft_abs(intmax_t nb)
+size_t	ft_maxst(size_t a, size_t b)
 {
-	if (nb < 0)
-		return (-nb);
-	return (nb);
+	if (a >= b)
+		return (a);
+	return (b);
 }

@@ -6,7 +6,7 @@
 /*   By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/12 19:05:54 by nmougino          #+#    #+#             */
-/*   Updated: 2016/06/19 21:44:00 by nmougino         ###   ########.fr       */
+/*   Updated: 2016/11/06 14:41:26 by nmougino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void		conv_s(t_spec *spec, t_print *print)
 {
 	int		i;
-	int		neg;
+	size_t	neg;
 	char	*s;
 
 	if (spec->hljz == E_L || spec->hljz == E_LL)
@@ -26,14 +26,16 @@ void		conv_s(t_spec *spec, t_print *print)
 	else
 	{
 		i = 0;
-		s = (char *)urecupparam(E_LONG, print->ap);
+		s = (char *)(unsigned long)urecupparam(E_LONG, print->ap);
 		if (!s)
 			s = "(null)";
-		neg = (spec->prec > -1 ? ft_min(spec->prec, ft_strlen(s)) :
+		neg = (spec->prec > -1 ? (size_t)ft_min(spec->prec, (int)ft_strlen(s)) :
 				ft_strlen(s));
-		(!(spec->flags & E_DASH)) ? applymfw(print, spec, spec->mfw - neg) : 0;
+		if (!(spec->flags & E_DASH))
+			applymfw(print, spec, (spec->mfw) - (int)neg);
 		while (s[i] && (spec->prec--))
 			addto(s[i++], print);
-		(spec->flags & E_DASH) ? applymfw(print, spec, spec->mfw) : 0;
+		if (spec->flags & E_DASH)
+			applymfw(print, spec, spec->mfw);
 	}
 }

@@ -6,13 +6,13 @@
 #    By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/04/05 16:20:26 by nmougino          #+#    #+#              #
-#    Updated: 2016/10/21 15:24:30 by nmougino         ###   ########.fr        #
+#    Updated: 2016/11/06 14:20:27 by nmougino         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 #	Compilator - clang est plus sur que gcc
 CC =		clang
-CFLAGS =	-Wall -Wextra -Werror -Weverything
+CFLAGS =	-Wall -Wextra -Werror -Weverything -Wno-padded
 ADDFLAGS =
 
 #	Binary
@@ -42,11 +42,13 @@ SRC =		addto.c \
 			conv_s.c \
 			conv_u.c \
 			conv_uni.c \
-			ft_abs.c \
+			ft_absmax.c \
 			ft_bitlen.c \
 			ft_bzero.c \
 			ft_max.c \
+			ft_maxst.c \
 			ft_min.c \
+			ft_minst.c \
 			ft_nbrlen.c \
 			ft_nbrlenbase.c \
 			ft_printf.c \

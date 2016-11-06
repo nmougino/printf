@@ -6,11 +6,12 @@
 /*   By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/12 19:10:04 by nmougino          #+#    #+#             */
-/*   Updated: 2016/06/20 23:34:58 by nmougino         ###   ########.fr       */
+/*   Updated: 2016/11/06 14:47:30 by nmougino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+#include <stdio.h>
 
 void	applysharp(t_print *print, t_spec *spec)
 {

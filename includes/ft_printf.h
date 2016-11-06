@@ -6,7 +6,7 @@
 /*   By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/31 18:06:49 by nmougino          #+#    #+#             */
-/*   Updated: 2016/10/29 18:16:51 by nmougino         ###   ########.fr       */
+/*   Updated: 2016/11/06 14:45:21 by nmougino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,7 @@ typedef struct		s_print
 	t_spec			*spec;
 }					t_print;
 
-typedef	int	(*convf_t)(t_spec*, t_print*);
+typedef	int			(*convf_t)(t_spec*, t_print*);
 
 int					ft_printf(const char *format, ...);
 int					ft_dprintf(int fd, const char *format, ...);
@@ -115,21 +115,25 @@ void				conv_mod(t_spec *spec, t_print *print);
 
 int					conv(t_spec *spec, t_print *print, const char *format);
 
-void				sitoa(intmax_t p, t_print *print, int l);
-void				uitoabase(uintmax_t p, char *base, t_print *print, int l);
+void				sitoa(intmax_t p, t_print *print, size_t l);
+void				uitoabase(uintmax_t p, char *base, t_print *print,
+							size_t l);
 
 intmax_t			recupparam(int type, va_list ap);
 uintmax_t			urecupparam(int type, va_list ap);
 
-uintmax_t			ft_abs(intmax_t nb);
+size_t				ft_bitlen(uintmax_t p);
+size_t				ft_maxst(size_t a, size_t b);
+size_t				ft_minst(size_t a, size_t b);
+intmax_t			ft_absmax(intmax_t nb);
+int					ft_strnloc(char c, char *ptr, int n);
+
 void				ft_bzero(void *s, size_t n);
 int					ft_max(int a, int b);
 int					ft_min(int a, int b);
-int					ft_nbrlen(intmax_t nb);
-int					ft_nbrlenbase(uintmax_t nb, int base);
-int					ft_bitlen(intmax_t p);
+size_t				ft_nbrlen(intmax_t nb);
+size_t				ft_nbrlenbase(uintmax_t nb, int base);
 char				*ft_strchr(const char *s, int c);
 size_t				ft_strlen(const char *s);
-int					ft_strnloc(char c, void *ptr, int n);
 
 #endif

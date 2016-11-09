@@ -6,7 +6,7 @@
 /*   By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/12 19:08:56 by nmougino          #+#    #+#             */
-/*   Updated: 2016/11/06 14:52:40 by nmougino         ###   ########.fr       */
+/*   Updated: 2016/11/06 15:22:17 by nmougino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,9 @@ void	conv_u(t_spec *spec, t_print *print)
 	{
 		if (!(spec->flags & E_DASH))
 			applymfw(print, spec, spec->mfw -
-			(ft_max(spec->prec, (int)ft_nbrlenbase(p, 10))));
-		applynumprec(print, spec, (int)ft_nbrlenbase(p, 10));
-		uitoabase(p, "0123456789", print, ft_nbrlenbase(p, 10));
+			(ft_max(spec->prec, (int)ft_nbrlenbasemax(p, 10))));
+		applynumprec(print, spec, (int)ft_nbrlenbasemax(p, 10));
+		uitoabase(p, "0123456789", print, ft_nbrlenbasemax(p, 10));
 		if (spec->flags & E_DASH)
 			applymfw(print, spec, spec->mfw);
 	}

@@ -6,7 +6,7 @@
 /*   By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/12 19:09:48 by nmougino          #+#    #+#             */
-/*   Updated: 2016/11/06 14:44:08 by nmougino         ###   ########.fr       */
+/*   Updated: 2016/11/06 15:22:17 by nmougino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,7 +90,7 @@ void			conv_ls(t_spec *spec, t_print *print)
 		applymfw(print, spec, spec->mfw - ft_wstrlen(p) - j);
 	while (p[i] && (spec->prec > 0 || spec->prec <= -1))
 	{
-		nbbi = ft_nbrlenbase((uintmax_t)p[i], 2);
+		nbbi = ft_nbrlenbasemax((uintmax_t)p[i], 2);
 		spec->prec -= nboc(nbbi);
 		adduni(p[i], nbbi, print);
 		i++;

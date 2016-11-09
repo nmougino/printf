@@ -6,7 +6,7 @@
 /*   By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/12 19:07:26 by nmougino          #+#    #+#             */
-/*   Updated: 2016/11/06 14:48:45 by nmougino         ###   ########.fr       */
+/*   Updated: 2016/11/09 15:15:16 by nmougino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	conv_d(t_spec *sp, t_print *pr)
 
 	if (!((p = recupparam(sp->hljz, pr->ap)) > -9223372036854775807))
 		return ;
-	l = (int)ft_nbrlen(ft_absmax(p));
+	l = (int)ft_nbrlenmax(ft_absmax(p));
 	i = (p < 0) || (sp->flags & 3);
 	j = !(sp->prec || p) ? 0 : (ft_max(sp->prec + i, (int)l + i));
 	++sp->mfw;
@@ -55,7 +55,7 @@ void	conv_i(t_spec *sp, t_print *pr)
 
 	if (!((p = recupparam(sp->hljz, pr->ap)) > -9223372036854775807))
 		return ;
-	l = (int)ft_nbrlen(ft_absmax(p));
+	l = (int)ft_nbrlenmax(ft_absmax(p));
 	i = (p < 0) || (sp->flags & 3);
 	j = !(sp->prec || p) ? 0 : (ft_max(sp->prec + i, (int)l + i));
 	++sp->mfw;

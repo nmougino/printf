@@ -1,28 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_nbrlenbase.c                                    :+:      :+:    :+:   */
+/*   ft_nbrlenmax.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/06/09 17:06:58 by nmougino          #+#    #+#             */
-/*   Updated: 2016/10/29 19:10:53 by nmougino         ###   ########.fr       */
+/*   Created: 2015/11/24 16:39:23 by nmougino          #+#    #+#             */
+/*   Updated: 2016/11/09 15:15:37 by nmougino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-size_t	ft_nbrlenbase(uintmax_t nb, int base)
+size_t	ft_nbrlenmax(intmax_t nb)
 {
-	double	tmp;
 	size_t	i;
 
 	i = 1;
-	tmp = (double)nb;
-	while (tmp >= (uintmax_t)base)
+	if (nb < 0)
 	{
-		++i;
-		tmp /= base;
+		nb *= -1;
+		i++;
+	}
+	while (nb > 9)
+	{
+		i++;
+		nb /= 10;
 	}
 	return (i);
 }

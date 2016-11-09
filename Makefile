@@ -6,13 +6,13 @@
 #    By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/04/05 16:20:26 by nmougino          #+#    #+#              #
-#    Updated: 2016/11/06 14:20:27 by nmougino         ###   ########.fr        #
+#    Updated: 2016/11/09 15:12:13 by nmougino         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 #	Compilator - clang est plus sur que gcc
 CC =		clang
-CFLAGS =	-Wall -Wextra -Werror -Weverything -Wno-padded
+CFLAGS =	-Wall -Wextra -Werror -Weverything
 ADDFLAGS =
 
 #	Binary
@@ -50,7 +50,7 @@ SRC =		addto.c \
 			ft_min.c \
 			ft_minst.c \
 			ft_nbrlen.c \
-			ft_nbrlenbase.c \
+			ft_nbrlenbasemax.c \
 			ft_printf.c \
 			ft_strchr.c \
 			ft_strlen.c \

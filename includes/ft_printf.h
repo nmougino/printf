@@ -6,7 +6,7 @@
 /*   By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/31 18:06:49 by nmougino          #+#    #+#             */
-/*   Updated: 2016/11/06 14:45:21 by nmougino         ###   ########.fr       */
+/*   Updated: 2016/11/09 15:15:16 by nmougino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -131,8 +131,8 @@ int					ft_strnloc(char c, char *ptr, int n);
 void				ft_bzero(void *s, size_t n);
 int					ft_max(int a, int b);
 int					ft_min(int a, int b);
-size_t				ft_nbrlen(intmax_t nb);
-size_t				ft_nbrlenbase(uintmax_t nb, int base);
+size_t				ft_nbrlenmax(intmax_t nb);
+size_t				ft_nbrlenbasemax(uintmax_t nb, int base);
 char				*ft_strchr(const char *s, int c);
 size_t				ft_strlen(const char *s);
 
